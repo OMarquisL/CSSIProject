@@ -1,6 +1,7 @@
 # CSSI Project
 
 This is my amazing CSSI Project. It's the bestest.
+My cool project.
 
 # Section
 
