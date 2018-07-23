@@ -1,8 +1,7 @@
 # CSSI Project
 
-This is my amazing CSSI Project. It's the bestest.
-My cool project.
+GEOHelper - A resource for new arrivals in the US.
 
 # Section
 
-This is a sextion. I can put words in here to describe my cool project.
+This site is a resource for people who have just come to the United States, to help them be able to adjust to life in the US. From helping them find housing and jobs to educating them on the cultural norms and linguistic specifics in the US, this will hopefully make the transition into the US a bit smoother.
