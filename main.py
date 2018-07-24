@@ -85,9 +85,71 @@ class HomePage(webapp2.RequestHandler):
         self.response.write(home_template.render())
     #def post(self):
 
+class EducationPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/education.html")
+        navbar_content = jinja_current_dir.get_template("Templates/education.html")
+        params = {
+            'navbar_content':navbar_content.render(),
+            'page_content': page_content.render(),
+        }
+        fullpage = jinja_current_dir.get_template("Templates/template.html")
+        self.response.write(page_content.render(params))
+
+class ImmigrationPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/immigration.html")
+        navbar_content = jinja_current_dir.get_template("Templates/immigration.html")
+        params = {
+            'navbar_content':navbar_content.render(),
+            'page_content': page_content.render(),
+        }
+        fullpage = jinja_current_dir.get_template("Templates/template.html")
+        self.response.write(page_content.render(params))
+
+class USLifePage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/uslife.html")
+        navbar_content = jinja_current_dir.get_template("Templates/uslife.html")
+        params = {
+            'navbar_content':navbar_content.render(),
+            'page_content': page_content.render(),
+        }
+        fullpage = jinja_current_dir.get_template("Templates/template.html")
+        self.response.write(page_content.render(params))
+
+class CulturePage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/culture.html")
+        navbar_content = jinja_current_dir.get_template("Templates/culture.html")
+        params = {
+            'navbar_content':navbar_content.render(),
+            'page_content': page_content.render(),
+        }
+        fullpage = jinja_current_dir.get_template("Templates/template.html")
+        self.response.write(page_content.render(params))
+
+
+
+# class DayCare(webapp2.RequestHandler):
+#     def get(self):
+#         home_template = jinja_current_dir.get_template("Templates/homePage.html")
+#         self.response.write(home_template.render())
+#
+# class Secondary(webapp2.RequestHandler):
+#     def get(self):
+#         home_template = jinja_current_dir.get_template("Templates/homePage.html")
+#         self.response.write(home_template.render())
+
+
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/Home', HomePage),
+  ('/Education', EducationPage),
+  ('/Immigration', ImmigrationPage),
+  ('/USLife', USLifePage),
+  ('/USCulture', CulturePage)
+  # ('/Immigration', ImmigrationPage),
 
 ], debug=True)
