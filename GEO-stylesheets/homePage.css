@@ -3,6 +3,6 @@
     display: inline;
 }
 
-#body{
-  background: red;
+body{
+  background-color: red;
 }

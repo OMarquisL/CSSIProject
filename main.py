@@ -143,13 +143,35 @@ class CulturePage (webapp2.RequestHandler):
 
 
 
+class Education(webapp2.RequestHandler):
+    def get(self):
+        education_template = jinja_current_dir.get_template("Templates/education.html")
+        self.response.write(education_template.render())
+
+class Immigration(webapp2.RequestHandler):
+    def get(self):
+        immigration_template = jinja_current_dir.get_template("Templates/immigration.html")
+        self.response.write(immigration_template.render())
+
+class LivingInUS(webapp2.RequestHandler):
+    def get(self):
+        usaLifestyle_template = jinja_current_dir.get_template("Templates/usLifestyle.html")
+        self.response.out.write(usaLifestyle_template.render())
+
+
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
   ('/Home', HomePage),
+<<<<<<< HEAD
   ('/Education', EducationPage),
   ('/Immigration', ImmigrationPage),
   ('/USLife', USLifePage),
   ('/USCulture', CulturePage)
   # ('/Immigration', ImmigrationPage),
+=======
+  ('/Educ', Education),
+  ('/Immi', Immigration),
+  ('/USLS', LivingInUS),
+>>>>>>> 6269736d0f683454dabdaf42e7334e9e7164884a
 
 ], debug=True)
