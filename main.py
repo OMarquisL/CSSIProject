@@ -2,6 +2,14 @@ import webapp2
 import jinja2
 import os
 
+EDUCATION_NAV = [
+    # Button id      link path           display name
+    ("Daycare",  "DaycareandPreschool", "Daycare and Preschool"),
+    ("Secondary", "SecondarySchool ", "Secondary School"),
+    ("Colleges", "CollegesandUniversities", "Colleges and Universities"),
+    ("International", "InternationalandBoarding", "International and Boarding Schools"),
+    ("Resources", "LearningResources", "Learning Resources")
+]
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -89,15 +97,41 @@ class EducationPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/education.html")
         params = {
-            'navbar_content': [
-                ("Daycare",  "DaycareandPreschool", "Daycare and Preschool"),
-                # "Secondary School",
+            'navbar_content': EDUCATION_NAV
+            # [
+            #     ("Daycare",  "DaycareandPreschool", "Daycare and Preschool"),
+            #     # "Secondary School",
                 # "Colleges and Universities",
                 # "International Boarding Schools",
                 # "Learning Resources"
-            ]
+            # ]
         }
         self.response.write(page_content.render(params))
+
+class DaycarePage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/daycare.html")
+        self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
+
+class SecondaryPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/secondary.html")
+        self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
+
+class CollegePage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/college.html")
+        self.response.write(page_content.render(navbar_content = EDUCATION_NAV))
+
+class InternationalPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/intl.html")
+        self.response.write(page_content.render(navbar_content = EDUCATION_NAV))
+
+class LearningPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/learning.html")
+        self.response.write(page_content.render(navbar_content = EDUCATION_NAV))
 
 class ImmigrationPage (webapp2.RequestHandler):
     def get(self):
@@ -117,27 +151,10 @@ class CulturePage (webapp2.RequestHandler):
 class DaycarePage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/daycare.html")
-        self.response.write(page_content.render())
+        self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
 
-class SecondaryPage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/secondary.html")
-        self.response.write(page_content.render(params))
 
-class CollegePage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/college.html")
-        self.response.write(page_content.render(params))
 
-class InternationalPage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/intl.html")
-        self.response.write(page_content.render(params))
-
-class LearningPage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/learning.html")
-        self.response.write(page_content.render(params))
 
 class LegalPage (webapp2.RequestHandler):
     def get(self):
