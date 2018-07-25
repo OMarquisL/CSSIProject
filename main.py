@@ -148,11 +148,6 @@ class CulturePage (webapp2.RequestHandler):
         page_content = jinja_current_dir.get_template("Templates/culture.html")
         self.response.write(page_content.render(params))
 
-class DaycarePage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/daycare.html")
-        self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
-
 
 
 
