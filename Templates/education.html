@@ -1,11 +1,12 @@
+<html>
 {% extends "Templates/template.html" %}
 {% block title %}Education{% endblock %}
 {% block navbar %}
-  <button type="button">Daycare and Preschool</button>
-  <button type="button">Secondary School</button>
-  <button type="button">Colleges and Universities</button>
-  <button type="button">International Boarding Schools</button>
-  <button type="button">Learning Resources</button>
+  <button class="Educbutton" type="button" id="DayCare">Daycare and Preschool</button>
+  <button class="Educbutton" type="button" id="Secondary" >Secondary School</button>
+  <button class="Educbutton" type="button" id="Colleges" >Colleges and Universities</button>
+  <button class="Educbutton" type="button" id="International">International Boarding Schools</button>
+  <button class="Educbutton" type="button" id="Resources">Learning Resources</button>
 {% endblock %}
   {% block content %}
     <h1 align = "center">Education</h1>
@@ -17,22 +18,24 @@
         expand your studies. Here you can find information on the different schools and how to register for these schools. </p>
 
      <p> Click <a href="https://www.usa.gov/study-in-us">here</a> to get more information on the school system in general.</p>
-  {% endblock %}
 
-  <!-- <script type="text/javascript">
-    document.getElementById("EducationButton").onclick = function(){
-      location.href = "/Education"
-    };
-    document.getElementById("ImmiButton").onclick = function(){
-      location.href = "/Immigration"
-    };
-    document.getElementById("USLifeButton").onclick = function(){
-      location.href = "/USLife"
-    };
-    document.getElementById("USCultureButton").onclick = function(){
-      location.href = "/USCulture"
-    };
-    document.getElementById("USCultureButton").onclick = function(){
-      location.href = "/USCulture"
-    };
-  </script> -->
+     <footer>
+       <script type="text/javascript">
+         document.getElementById("Daycare").onclick = function(){
+           location.href = "/DaycareandPreschool"
+         };
+         document.getElementById("Secondary").onclick = function(){
+           location.href = "/SecondarySchool"
+         };
+         document.getElementById("Colleges").onclick = function(){
+           location.href = "/CollegesandUniversities"
+         };
+         document.getElementById("International").onclick = function(){
+           location.href = "/InternationalandBoarding"
+         };
+         document.getElementById("Resources").onclick = function(){
+           location.href = "/LearningResources"
+         };
+       </script>
+     </footer>
+  {% endblock %}
