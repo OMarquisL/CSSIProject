@@ -16,9 +16,27 @@ IMMIGRATION_NAV = [
     ("Legal", "LegalResources", "Legal Resources"),
     ("Citizenship", "CitizenshipInfo", "Citizenship Information" ),
     ("Visa", "VisaInfo", "Visa Information"),
-    ("StateInfo", "StateInfo", "State Specif Information"),
+    ("StateInfo", "StateInfo", "State Specific Information"),
 
 ]
+
+USLIFE_NAV = [
+    ("InsuRance", "InsuranceP", "Insurance"),
+    ("HouseInfo", "HousingP", "Housing"),
+    ("HealthCare", "HealthC", "Healthcare Information"),
+    ("BankFin", "BankFinan", "Bank and Financial Information"),
+    ("Employmnt", "Employ", "Employment")
+]
+
+USCULTURE_NAV = [
+    ("SlanG", "SlangP", "Slang"),
+    ("PolChan", "PolCliP", "Political Climate"),
+    ("SportS", "SportsP", "Sports"),
+    ("HoliHist", "HolHisP", "Holidays and Historic Figures"),
+    ("StateAt", "StateAttrP", "State Attractions"),
+    ("GenTip", "GenTips", "General Tips")
+]
+
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -143,15 +161,12 @@ class LearningPage (webapp2.RequestHandler):
         self.response.write(page_content.render(navbar_content = EDUCATION_NAV))
 
 
-
 class ImmigrationPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/immigration.html")
         params = {
             'navbar_content': IMMIGRATION_NAV
-
         }
-
         self.response.write(page_content.render(params))
 
 class LegalPage (webapp2.RequestHandler):
@@ -162,76 +177,105 @@ class LegalPage (webapp2.RequestHandler):
 class CitizenshipPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/citizenship.html")
-        navbar_content = jinja_current_dir.get_template("Templates/citizenship.html")
+        # navbar_content = jinja_current_dir.get_template("Templates/citizenship.html")
         self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
-
-
 
 class VisaPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/visa.html")
-        navbar_content = jinja_current_dir.get_template("Templates/visa.html")
+        # navbar_content = jinja_current_dir.get_template("Templates/visa.html")
         self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
 
 class StatePage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/state.html")
-        navbar_content = jinja_current_dir.get_template("Templates/state.html")
+        # navbar_content = jinja_current_dir.get_template("Templates/state.html")
         self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
-
 
 
 class USLifePage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/uslife.html")
+        params = {
+            'navbar_content':USLIFE_NAV
+        }
         self.response.write(page_content.render(params))
-
-class CulturePage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/culture.html")
-        self.response.write(page_content.render(params))
-
-class DaycarePage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/daycare.html")
-        self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
-
-
-
-
 
 class InsurancePage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/insurance.html")
-        self.response.write(page_content.render(params))
-
-
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
 
 class HousingPage(webapp2.RequestHandler):
     def get(self):
-        page_content = jinja_current_dir.get_template("Templates/insurance.html")
-        navbar_content = jinja_current_dir.get_template("Templates/insurance.html")
-        self.response.write(page_content.render(params))
+        page_content = jinja_current_dir.get_template("Templates/housing.html")
+        # navbar_content = jinja_current_dir.get_template("Templates/insurance.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
 
 
 class HealthCare(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/healthCare.html")
-        navbar_content = jinja_current_dir.get_template("Templates/healthCare.html")
-        self.response.write(page_content.render(params))
-
+        # navbar_content = jinja_current_dir.get_template("Templates/healthCare.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
 
 
 class BankAndFinancial(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/financial.html")
-        self.response.write(page_content.render(params))
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
 
 class Employment(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/employment.html")
-        self.response.write(page_content.render(params))
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
 
+
+class CulturePage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/culture.html")
+        self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
+
+class SlangPage(webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/slang_page.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+
+class EtiquettePage(webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/etiquette_page.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+
+class PoliticalClimatePage(webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/politicalClimate_page.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+
+class SportsPage(webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/sports_page.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+
+class HolidaysAndHistoryPage(webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/holidayAndHistory.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+
+class StateAttraction(webapp2.RequestHandler):
+    def get(self):
+
+        page_content = jinja_current_dir.get_template("Templates/stateAttractions.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+
+class GeneralTipsPage(webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
+        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+# class DaycarePage (webapp2.RequestHandler):
+#     def get(self):
+#         page_content = jinja_current_dir.get_template("Templates/daycare.html")
+#         self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
+#
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
@@ -254,5 +298,12 @@ app = webapp2.WSGIApplication([
   ('/LegalResources', LegalPage),
   ('/CitizenshipInfo', CitizenshipPage),
   ('/VisaInfo', VisaPage),
-  ('/StateInfo', StatePage)
+  ('/StateInfo', StatePage),
+  ('/SlangP', SlangPage),
+  ('/EtiqP', EtiquettePage),
+  ('/PolCliP', PoliticalClimatePage),
+  ('/SportsP', SportsPage),
+  ('/HolHisP', HolidaysAndHistoryPage),
+  ('/StateAttrP', StateAttraction),
+  ('/GenTips', GeneralTipsPage),
 ], debug=True)
