@@ -1,41 +1,40 @@
-<html>
 {% extends "Templates/template.html" %}
 {% block title %}Education{% endblock %}
-{% block navbar %}
+<!-- {% block navbar %}
   <button class="Educbutton" type="button" id="DayCare">Daycare and Preschool</button>
   <button class="Educbutton" type="button" id="Secondary" >Secondary School</button>
   <button class="Educbutton" type="button" id="Colleges" >Colleges and Universities</button>
   <button class="Educbutton" type="button" id="International">International Boarding Schools</button>
   <button class="Educbutton" type="button" id="Resources">Learning Resources</button>
+{% endblock %} -->
+{% block content %}
+  <h1 align = "center">Education</h1>
+  <p> In the United States, the education system is rather similar to other nations. Beginning with elementary school,<br>
+      which many children begin at age 6, students progress through grades kindergarten to 5th grade, and then move on to secondary school.<br>
+      Secondary school is usually split between middle and high school, with students graduating in the 12th grade. There are many choice for<br>
+      secondary and other schools, with students choosing to go to advanced programs, religious schools, private schools, public (state-run) schools,<br>
+      and charter schools. After secondary school, there are many colleges and universities that provide the opportunity to gain a degree and to further<br>
+      expand your studies. Here you can find information on the different schools and how to register for these schools. </p>
+
+   <p> Click <a href="https://www.usa.gov/study-in-us">here</a> to get more information on the school system in general.</p>
+
+   <footer>
+     <script type="text/javascript">
+       document.getElementById("DayCare").onclick = function(){
+         location.href = "/DaycareandPreschool"
+       };
+       document.getElementById("Secondary").onclick = function(){
+         location.href = "/SecondarySchool"
+       };
+       document.getElementById("Colleges").onclick = function(){
+         location.href = "/CollegesandUniversities"
+       };
+       document.getElementById("International").onclick = function(){
+         location.href = "/InternationalandBoarding"
+       };
+       document.getElementById("Resources").onclick = function(){
+         location.href = "/LearningResources"
+       };
+     </script>
+   </footer>
 {% endblock %}
-  {% block content %}
-    <h1 align = "center">Education</h1>
-    <p> In the United States, the education system is rather similar to other nations. Beginning with elementary school,<br>
-        which many children begin at age 6, students progress through grades kindergarten to 5th grade, and then move on to secondary school.<br>
-        Secondary school is usually split between middle and high school, with students graduating in the 12th grade. There are many choice for<br>
-        secondary and other schools, with students choosing to go to advanced programs, religious schools, private schools, public (state-run) schools,<br>
-        and charter schools. After secondary school, there are many colleges and universities that provide the opportunity to gain a degree and to further<br>
-        expand your studies. Here you can find information on the different schools and how to register for these schools. </p>
-
-     <p> Click <a href="https://www.usa.gov/study-in-us">here</a> to get more information on the school system in general.</p>
-
-     <footer>
-       <script type="text/javascript">
-         document.getElementById("DayCare").onclick = function(){
-           location.href = "/DaycareandPreschool"
-         };
-         document.getElementById("Secondary").onclick = function(){
-           location.href = "/SecondarySchool"
-         };
-         document.getElementById("Colleges").onclick = function(){
-           location.href = "/CollegesandUniversities"
-         };
-         document.getElementById("International").onclick = function(){
-           location.href = "/InternationalandBoarding"
-         };
-         document.getElementById("Resources").onclick = function(){
-           location.href = "/LearningResources"
-         };
-       </script>
-     </footer>
-  {% endblock %}

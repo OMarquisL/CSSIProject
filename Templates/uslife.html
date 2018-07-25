@@ -1,15 +1,34 @@
 {% extends "Templates/template.html" %}
 {% block title %}Living in the US{% endblock %}
 {% block navbar %}
-  <button type="button">Insurance</button>
-  <button type="button">Housing</button>
-  <button type="button">Healthcare Information</button>
-  <button type="button">Bank and Financial Information</button>
-  <button type="button">Employment</button>
+  <button type="button" id="Ins">Insurance</button>
+  <button type="button" id="Hous">Housing</button>
+  <button type="button" id="HealthCa">Healthcare Information</button>
+  <button type="button" id="BankFin">Bank and Financial Information</button>
+  <button type="button" id="Empl">Employment</button>
 {% endblock %}
   {% block content %}
     <h1 align = "center">Living in the US</h1>
     <p> When setting up your new life in any country, getting a job, getting a house, healthcare, money management, and many other factors <br>
         must be planned out in order to allow for a smooth transition and to create a stable starting place. The US is no different. This <br>
         section of the site provides many resources that will allow you to find a job and set up your life in the US.</p>
+        <footer>
+          <script type="text/javascript">
+            document.getElementById("Ins").onclick = function(){
+              location.href = "/InsuranceP"
+            };
+            document.getElementById("Hous").onclick = function(){
+              location.href = "/HousingP"
+            };
+            document.getElementById("HealthCa").onclick = function(){
+              location.href = "/HealthC"
+            };
+            document.getElementById("BankFin").onclick = function(){
+              location.href = "/BankFinan"
+            };
+            document.getElementById("Empl").onclick = function(){
+              location.href = "/Employ"
+            };
+          </script>
+        </footer>
   {% endblock %}

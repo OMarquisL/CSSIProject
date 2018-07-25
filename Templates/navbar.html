@@ -1,0 +1,13 @@
+{% block navbar %}
+ {% for (id, path, display_name) in navbar_content %}
+  <button class="Navbutton" type="button" id="{{id}}">{{display_name}}</button>
+ {% endfor %}
+
+ <script type="text/javascript">
+ {% for (id, path, display_name) in navbar_content %}
+   document.getElementById("{{id}}").onclick = function(){
+     location.href = "{{path}}"
+   };
+ {% endfor %}
+ </script>
+{% endblock %}
