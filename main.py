@@ -213,6 +213,7 @@ class HousingPage(webapp2.RequestHandler):
         self.response.write(page_content.render(navbar_content = USLIFE_NAV))
 
 
+
 class HealthCare(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/healthCare.html")
