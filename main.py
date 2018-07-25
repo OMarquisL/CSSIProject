@@ -11,6 +11,15 @@ EDUCATION_NAV = [
     ("Resources", "LearningResources", "Learning Resources")
 ]
 
+IMMIGRATION_NAV = [
+
+    ("Legal", "LegalResources", "Legal Resources"),
+    ("Citizenship", "CitizenshipInfo", "Citizenship Information" ),
+    ("Visa", "VisaInfo", "Visa Information"),
+    ("StateInfo", "StateInfo", "State Specif Information"),
+
+]
+
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
@@ -133,10 +142,44 @@ class LearningPage (webapp2.RequestHandler):
         page_content = jinja_current_dir.get_template("Templates/learning.html")
         self.response.write(page_content.render(navbar_content = EDUCATION_NAV))
 
+
+
 class ImmigrationPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/immigration.html")
+        params = {
+            'navbar_content': IMMIGRATION_NAV
+
+        }
+
         self.response.write(page_content.render(params))
+
+class LegalPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/legal.html")
+        self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
+
+class CitizenshipPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/citizenship.html")
+        navbar_content = jinja_current_dir.get_template("Templates/citizenship.html")
+        self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
+
+
+
+class VisaPage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/visa.html")
+        navbar_content = jinja_current_dir.get_template("Templates/visa.html")
+        self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
+
+class StatePage (webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/state.html")
+        navbar_content = jinja_current_dir.get_template("Templates/state.html")
+        self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
+
+
 
 class USLifePage (webapp2.RequestHandler):
     def get(self):
@@ -156,21 +199,13 @@ class DaycarePage (webapp2.RequestHandler):
 
 
 
-class LegalPage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/legal.html")
-        self.response.write(page_content.render(params))
 
 class InsurancePage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/insurance.html")
         self.response.write(page_content.render(params))
 
-class CitizenshipPage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/citizenship.html")
-        navbar_content = jinja_current_dir.get_template("Templates/citizenship.html")
-        self.response.write(page_content.render(params))
+
 
 class HousingPage(webapp2.RequestHandler):
     def get(self):
@@ -178,11 +213,6 @@ class HousingPage(webapp2.RequestHandler):
         navbar_content = jinja_current_dir.get_template("Templates/insurance.html")
         self.response.write(page_content.render(params))
 
-class VisaPage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/visa.html")
-        navbar_content = jinja_current_dir.get_template("Templates/visa.html")
-        self.response.write(page_content.render(params))
 
 class HealthCare(webapp2.RequestHandler):
     def get(self):
@@ -190,11 +220,7 @@ class HealthCare(webapp2.RequestHandler):
         navbar_content = jinja_current_dir.get_template("Templates/healthCare.html")
         self.response.write(page_content.render(params))
 
-class StatePage (webapp2.RequestHandler):
-    def get(self):
-        page_content = jinja_current_dir.get_template("Templates/state.html")
-        navbar_content = jinja_current_dir.get_template("Templates/state.html")
-        self.response.write(page_content.render(params))
+
 
 class BankAndFinancial(webapp2.RequestHandler):
     def get(self):
