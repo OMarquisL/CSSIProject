@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Financial Information</title>
-  </head>
-  <body>
+{% extends "Templates/template.html" %}
+{% block title%} Daycare {% endblock %}
+
+
+    {% block content%}
     <h1>Financial Information</h1>
     <p> In the United States, financial planning and financial knowledge are very important. Here are some resources to help you with
         your finances, and help you gain financial stability in the US.</p><br>
@@ -23,5 +21,4 @@
       <li><a href="http://guides.wsj.com/personal-finance/banking/how-to-select-a-checking-account/">Wall Street Journal</a></li>
       <li><a href="https://www.fdic.gov/about/learn/learning/banks.html">FDIC</a></li>
     </ul>
-  </body>
-</html>
+{% endblock %}

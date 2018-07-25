@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Insurance</title>
-  </head>
-  <body>
+{% extends "Templates/template.html" %}
+{% block title%} Daycare {% endblock %}
+
+
+    {% block content%}
     <h1>Insurance Information</h1>
     <p> Insurance is another element of life in the US that is important to consider. From health insurance to car insurance to life
         insurance, it is important to understand what insurance is so that you can invest in it and use it effectively.</p><br>
@@ -15,5 +13,5 @@
     <p><a href="https://cashmoneylife.com/types-of-insurance-you-need/">Cash Money Life</a></p>
     <h5>Finding the right insurance</h5>
     <p><a href="http://www.insurancecompanies.com/finding-the-right-insurance-company-for-you/">Insurance Companies</a></p>
-  </body>
-</html>
+
+{% endblock%}

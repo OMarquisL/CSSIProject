@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Employment Information</title>
-  </head>
-  <body>
+{% extends "Templates/template.html" %}
+{% block title%} Daycare {% endblock %}
+
+
+    {% block content%}
     <h1>Employment Information</h1>
     <p> In the United States, there are many ways to find jobs. Below is a list of sources that can be helpful in finding a
         job in the US, as well as give you information about the job from people who work there.</p><br>
@@ -18,5 +16,4 @@
       <li><a href="http://www.immigrantwelcomecenter.org/jobs2/">Immigrant Welcome Center</a></li>
     </ul>
     <p> For job advice, <a href="https://www.careerbuilder.com/advice/how-to-find-a-job-in-the-us-as-an-immigrant">CareerBuilder</a> and <a href="https://www.linkedin.com">LinkedIn</a> are great sources.</p>
-  </body>
-</html>
+{% endblock %}

@@ -1,10 +1,14 @@
-<html>
-<body>
+{% extends "Templates/template.html" %}
+{% block title%} Daycare {% endblock %}
+
+
+    {% block content%}
+    <!-- {% include 'Templates/navbar.html' %} -->
   <center>
   <h1>Daycare</h1>
   <p><a href="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide">Noodle</a></p>
   <p><a href="https://www.care.com/better-care-starts-here-p1087-q108247313.html">Care</a></p>
   <p><a href="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">8 Tips for Choosing Childcare</a></p>
   <p><a href="https://www.whattoexpect.com/first-year/daycare">Daycare101</a></p>
-</body>
-</html>
+
+{% endblock %}

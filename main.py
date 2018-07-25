@@ -98,7 +98,7 @@ class MainHandler(webapp2.RequestHandler):
           users.create_login_url('/')))
 
   def post(self):
-    bye_template = jinja_current_dir.get_template("Templates/bye.html")
+    bye_template = jinja_current_dir.get_template("Templates/Home.html")
     self.response.write(bye_template.render())
     user = users.get_current_user()
     if not user:
@@ -212,8 +212,6 @@ class HousingPage(webapp2.RequestHandler):
         # navbar_content = jinja_current_dir.get_template("Templates/insurance.html")
         self.response.write(page_content.render(navbar_content = USLIFE_NAV))
 
-
-
 class HealthCare(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/healthCare.html")
@@ -235,48 +233,55 @@ class Employment(webapp2.RequestHandler):
 class CulturePage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/culture.html")
-        self.response.write(page_content.render(navbar_content = IMMIGRATION_NAV))
+        params = {
+            'navbar_content': USCULTURE_NAV
+        }
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
 class SlangPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/slang_page.html")
-        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
 class EtiquettePage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/etiquette_page.html")
-        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
 class PoliticalClimatePage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/politicalClimate_page.html")
-        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
 class SportsPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/sports_page.html")
-        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
 class HolidaysAndHistoryPage(webapp2.RequestHandler):
     def get(self):
-        page_content = jinja_current_dir.get_template("Templates/holidayAndHistory.html")
-        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+        page_content = jinja_current_dir.get_template("Templates/holidaAndHistory.html")
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
 class StateAttraction(webapp2.RequestHandler):
     def get(self):
-
-        page_content = jinja_current_dir.get_template("Templates/stateAttractions.html")
-        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+        page_content = jinja_current_dir.get_template("Templates/stateAtractions_page.html")
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
 class GeneralTipsPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
-        self.response.write(page_content.render(navbar_content = USLIFE_NAV))
+        self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 # class DaycarePage (webapp2.RequestHandler):
 #     def get(self):
 #         page_content = jinja_current_dir.get_template("Templates/daycare.html")
 #         self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
 #
+
+class AnswerToLife(webapp2.RequestHandler):
+    def get(self):
+        page_content = jinja_current_dir.get_template("Templates/hitch_page.html")
+        self.response.write(page_content.render())
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
@@ -307,4 +312,5 @@ app = webapp2.WSGIApplication([
   ('/HolHisP', HolidaysAndHistoryPage),
   ('/StateAttrP', StateAttraction),
   ('/GenTips', GeneralTipsPage),
+  ('/42', AnswerToLife),
 ], debug=True)
