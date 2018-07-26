@@ -4,9 +4,24 @@
 
     {% block content%}
     <h1>Merry Christmaas</h1>
-    <p><a href="https://www.infoplease.com/holidays-america">Infoplease: Holidays of America</a></p>
-    <p><a href="https://americanenglish.state.gov/resources/celebrate-holidays-usa">Celebrate US Holidays</a></p>
-    <p><a href="https://www.immihelp.com/newcomer/major-holidays-festivals-america.html">Major Holidays and Festivals</a></p>
+    <p><a href="https://www.infoplease.com/holidays-america">Infoplease: Holidays of America</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.infoplease.com/holidays-america">
+        <input type="text" style = "display:none" name="actual_name" value="America Holidays"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form>    </p>
+    <p><a href="https://americanenglish.state.gov/resources/celebrate-holidays-usa">Celebrate US Holidays</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://americanenglish.state.gov/resources/celebrate-holidays-usa">
+        <input type="text" style = "display:none" name="actual_name" value="USA Holidays Celebrations"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form>    </p>
+    <p><a href="https://www.immihelp.com/newcomer/major-holidays-festivals-america.html">Major Holidays and Festivals</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.immihelp.com/newcomer/major-holidays-festivals-america.html">
+        <input type="text" style = "display:none" name="actual_name" value="Important Festivals"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
 
 {% endblock %}
 

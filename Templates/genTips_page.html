@@ -5,8 +5,28 @@
     {% block content%}
 
     <h1>General Tips</h1>
-    <p><a href="https://www.interexchange.org/articles/career-training-abroad/10-things-to-know-about-u-s-culture/">Interexchange: 10 Things about US culture</a></p>
-    <p><a href="https://www.kwintessential.co.uk/resources/guides/guide-to-the-usa-etiquette-customs-culture-business/">Kwintessential</a></p>
-    <p><a href="https://bilingua.io/livemocha-language-exchange">Bilingua/LivaMocha</a></p>
-    <p><a href="https://www.memrise.com">Memrise</a></p>
+    <p><a href="https://www.interexchange.org/articles/career-training-abroad/10-things-to-know-about-u-s-culture/">Interexchange: 10 Things about US culture</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.interexchange.org/articles/career-training-abroad/10-things-to-know-about-u-s-culture/">
+        <input type="text" style = "display:none" name="actual_name" value="US Culture Facts"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://www.kwintessential.co.uk/resources/guides/guide-to-the-usa-etiquette-customs-culture-business/">Kwintessential</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.kwintessential.co.uk/resources/guides/guide-to-the-usa-etiquette-customs-culture-business/">
+        <input type="text" style = "display:none" name="actual_name" value="Kwintessential"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://bilingua.io/livemocha-language-exchange">Bilingual/LivaMocha</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://bilingua.io/livemocha-language-exchange">
+        <input type="text" style = "display:none" name="actual_name" value="Bilingual/LivaMocha"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://www.memrise.com">Memrise</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.memrise.com">
+        <input type="text" style = "display:none" name="actual_name" value="Memrise"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
     {%endblock%}
