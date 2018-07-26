@@ -5,15 +5,59 @@
     {% block content%}
     <!-- {% include 'Templates/navbar.html' %} -->
   <center>
-  <h1>Daycare</h1>
-  <p><a href="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide">Noodle</a>
+  <h1>Daycare and Preschool</h1>
+  <h2>Daycare/Preschool Search Advice</h2>
+  <p><a href="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide">Noodle: "How Preschool and Child Care Work: A State-by-State Guide"</a>
   <form class="hidden" action="/Home" method="post">
     <input type="text" style = "display:none" name="actual_name" value="Noodle"></input>
     <input type="text" style = "display:none" name="link" value="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide"></input>
     <input type="submit" name="button" value="Save"></input>
   </form>
 </p>
-
+  <p><a href="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">Parents - 8 Tips for Choosing Childcare</a>
+    <!-- <button type="button" name="button">Save</button>  <form class="hidden" action="/Home" method="post"> -->
+    <form class="hidden" action="/Home" method="post">
+      <input type="text" name="link" style = "display:none" value="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">
+      <input type="text" style = "display:none" name="actual_name" value="8 Tips for Choosing Childcare"></input>
+      <input type="submit" name="button" value="Save"></input>
+      </form>
+  </p>
+  <p><a href="https://www.whattoexpect.com/first-year/daycare">Daycare101: How to Pick the Best Facility for Your Family</a>
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://www.whattoexpect.com/first-year/daycare">
+    <input type="text" style = "display:none" name="actual_name" value="Daycare101"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+  </p>
+  <p><a href="https://www.babycenter.com/0_signs-of-a-good-daycare-center_6065.bc">Babycenter: Signs of a Good Daycare Center</a>
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://www.babycenter.com/0_signs-of-a-good-daycare-center_6065.bc">
+    <input type="text" style = "display:none" name="actual_name" value="Daycare101"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+  </p>
+  <p><a href="https://www.parents.com/baby/childcare/daycare/what-makes-a-great-daycare/">Parents: What Makes a Great Daycare</a>
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://www.parents.com/baby/childcare/daycare/what-makes-a-great-daycare/">
+    <input type="text" style = "display:none" name="actual_name" value="Daycare101"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+  </p>
+  <h2>Find Local Daycare Centers and Preschools</h2>
+  <p><a href="https://families.naeyc.org/find-quality-child-care">Families NAEYC</a>
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://families.naeyc.org/find-quality-child-care">
+    <input type="text" style = "display:none" name="actual_name" value="Daycare101"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+  </p>
+  <p><a href="https://winnie.com/childcare">Winnie</a>
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://winnie.com/childcare">
+    <input type="text" style = "display:none" name="actual_name" value="Daycare101"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+  </p>
   <p><a href="https://www.care.com/better-care-starts-here-p1087-q108247313.html">Care</a>
   <!-- <button type="button" name="button">Save</button> -->
   <form class="hidden" action="/Home" method="post">
@@ -21,21 +65,4 @@
   <input type="text" style = "display:none" name="link" value="https://www.care.com/better-care-starts-here-p1087-q108247313.html"></input>
   <input type="submit" name="button" value="Save"></input>
 </form></p>
-  <p><a href="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">8 Tips for Choosing Childcare</a>
-    <!-- <button type="button" name="button">Save</button>  <form class="hidden" action="/Home" method="post"> -->
-    <form class="hidden" action="/Home" method="post">
-      <input type="text" name="link" style = "display:none" value="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">
-      <input type="text" style = "display:none" name="actual_name" value="8 Tips for Choosing Childcare"></input>
-      <input type="submit" name="button" value="Save"></input>
-      </form>
-
-  </p>
-  <p><a href="https://www.whattoexpect.com/first-year/daycare">Daycare101</a>
-    <form class="hidden" action="/Home" method="post">
-    <input type="text" name="link" style = "display:none" value="https://www.whattoexpect.com/first-year/daycare">
-    <input type="text" style = "display:none" name="actual_name" value="Daycare101"></input>
-    <input type="submit" name="button" value="Save"></input>
-    </form>
-  </p>
-
 {% endblock %}
