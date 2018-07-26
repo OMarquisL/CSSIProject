@@ -5,14 +5,14 @@
     <title>Surprise</title>
   </head>
   <body>
-    <h1 align = "center" color ="red" style="color:red; font-size: 50px " style = "padding-top: 30px">ANSWER TO LIFE AND THE UNIVERSE AS A WHOLE BELONGS HERE...</h1>
+    <h1 align = "center" color ="RoyalBlue" style="color:RoyalBlue; font-size: 30px " style = "padding-top: 30px">ASK A QUESTION</h1>
     <form action="/formsubmit">
-
-  First name:<br>
-  <input type="text" name="firstname"><br>
-  Last name:<br>
-  <input type="text" name="lastname">
-  <input type="submit" value="Submit">
-</form>
+      <input type="hidden" name="user_name" value="{{user_name}}"><br>
+      Question Title:<br>
+      <input type="text" name="title"><br>
+      Question:<br>
+      <input type="text" name="question"><br>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>

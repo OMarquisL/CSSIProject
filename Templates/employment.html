@@ -9,10 +9,41 @@
         job in the US, as well as give you information about the job from people who work there.</p><br>
     <h2>Employment Resources</h2>
     <h3>Job Portals</h3>
-      <p><a href="https://www.monster.com/">Monster</a></p>
-      <p><a href="https://www.glassdoor.com/index.htm">Glassdoor</a></p>
-      <p><a href="https://www.indeed.com/">Indeed</a> - Job search website by location that allows keywords such as “Foreign Worker”</p>
-      <p><a href="https://www.optnation.com/">Optnation</a> - For international students</p>
-      <p><a href="http://www.immigrantwelcomecenter.org/jobs2/">Immigrant Welcome Center</a></p>
-    <p> For job advice, <a href="https://www.careerbuilder.com/advice/how-to-find-a-job-in-the-us-as-an-immigrant">CareerBuilder</a> and <a href="https://www.linkedin.com">LinkedIn</a> are great sources.</p>
+      <p><a href="https://www.monster.com/">Monster</a>
+        <form class="hidden" action="/Home" method="post">
+          <input type="text" name="link" style = "display:none" value="https://www.usa.gov/study-in-us">
+          <input type="text" style = "display:none" name="actual_name" value="USA"></input>
+          <input type="submit" name="button" value="Save"></input>
+          </form></p>
+      <p><a href="https://www.glassdoor.com/index.htm">Glassdoor</a>
+        <form class="hidden" action="/Home" method="post">
+          <input type="text" name="link" style = "display:none" value="https://www.usa.gov/study-in-us">
+          <input type="text" style = "display:none" name="actual_name" value="USA"></input>
+          <input type="submit" name="button" value="Save"></input>
+          </form></p>
+      <p><a href="https://www.indeed.com/">Indeed</a> - Job search website by location that allows keywords such as “Foreign Worker”
+        <form class="hidden" action="/Home" method="post">
+          <input type="text" name="link" style = "display:none" value="https://www.indeed.com/">
+          <input type="text" style = "display:none" name="actual_name" value="Indeed"></input>
+          <input type="submit" name="button" value="Save"></input>
+          </form>
+      </p>
+      <p><a href="https://www.optnation.com/">Optnation</a> - For international students
+        <form class="hidden" action="/Home" method="post">
+          <input type="text" name="link" style = "display:none" value="https://www.optnation.com/">
+          <input type="text" style = "display:none" name="actual_name" value="Optnation"></input>
+          <input type="submit" name="button" value="Save"></input>
+          </form></p>
+      <p><a href="http://www.immigrantwelcomecenter.org/jobs2/">Immigrant Welcome Center</a>
+        <form class="hidden" action="/Home" method="post">
+          <input type="text" name="link" style = "display:none" value="http://www.immigrantwelcomecenter.org/jobs2/">
+          <input type="text" style = "display:none" name="actual_name" value="Immigrant Welcome Center"></input>
+          <input type="submit" name="button" value="Save"></input>
+          </form></p>
+    <p> For job advice, <a href="https://www.careerbuilder.com/advice/how-to-find-a-job-in-the-us-as-an-immigrant">CareerBuilder</a> and <a href="https://www.linkedin.com">LinkedIn</a> are great sources.
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.careerbuilder.com/advice/how-to-find-a-job-in-the-us-as-an-immigrant">
+        <input type="text" style = "display:none" name="actual_name" value="Career Builder"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
 {% endblock %}
