@@ -9,36 +9,78 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <title>ImmiHelper</title>
+    <style>
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+      }
 
+      li {
+          float: left;
+          border-right:1px solid #bbb;
+      }
+
+      li:last-child {
+          border-right: none;
+      }
+
+      li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+          background-color: #111;
+      }
+
+      .active {
+          background-color: #4CAF50;
+      }
+    </style>
   </head>
 
   <body>
 
     <h1 align = "center">GEOHelper</h1>
 
-        <button class="firstbutton" type="button" id="EducationButton">
+    <ul>
+      <li><a class="active" href="/Education">Education</a></li>
+      <li><a class="active" href="/Immigration">Immigration Information</a></li>
+      <li><a class="active" href="/USLife">Living in the US</a></li>
+      <li><a class="active" href="/USCulture">US Culture</a></li>
+      <li><a class="active" href="/Forum">Advice Forum</a></li>
+      <!-- <li style="float:right"><a href="#about">About</a></li> -->
+    </ul>
+
+        <!-- <button class="firstbutton" type="button" id="EducationButton">
           Education
         </button>
 
-        <button class="firstbutton" type="button" id="ImmiButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="firstbutton" type="button" id="ImmiButton">
             Immigration Information
         </button>
 
-        <button class="firstbutton" type="button" id="USLifeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="firstbutton" type="button" id="USLifeButton">
           Living in the US
         </button>
 
-        <button class="firstbutton" type="button" id="USCultureButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="firstbutton" type="button" id="USCultureButton">
             US Culture
         </button>
 
-        <button type="button" id="AnswerToLF" > DON'T CLICK ME</button>
+        <button class="firstbutton" type="button" id="Forum">Advice Forum</button> -->
 
     <h1 align = "center"> DASHBOARD HERE</h1>
 
   </body>
 
-  <footer>
+  <!-- <footer>
     <script type="text/javascript">
       document.getElementById("EducationButton").onclick = function(){
         location.href = "/Education"
@@ -52,9 +94,9 @@
       document.getElementById("USCultureButton").onclick = function(){
         location.href = "/USCulture"
       };
-      document.getElementById("AnswerToLF").onclick = function (){
-        location.href = "/42"
+      document.getElementById("Forum").onclick = function (){
+        location.href = "/Forum"
       }
     </script>
-  </footer>
+  </footer> -->
 </html>

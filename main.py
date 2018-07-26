@@ -278,10 +278,14 @@ class GeneralTipsPage(webapp2.RequestHandler):
 #         self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
 #
 
-class AnswerToLife(webapp2.RequestHandler):
+class ForumPage(webapp2.RequestHandler):
     def get(self):
-        page_content = jinja_current_dir.get_template("Templates/hitch_page.html")
+        page_content = jinja_current_dir.get_template("Templates/forum.html")
         self.response.write(page_content.render())
+
+class FormSubmit(webapp2.RequestHandler):
+    def get(self):
+        print self.request.get("firstname")
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
@@ -300,7 +304,6 @@ app = webapp2.WSGIApplication([
   ('/HealthC', HealthCare),
   ('/BankFinan', BankAndFinancial),
   ('/Employ', Employment),
-  # ('/Immigration', ImmigrationPage),
   ('/LegalResources', LegalPage),
   ('/CitizenshipInfo', CitizenshipPage),
   ('/VisaInfo', VisaPage),
@@ -312,5 +315,6 @@ app = webapp2.WSGIApplication([
   ('/HolHisP', HolidaysAndHistoryPage),
   ('/StateAttrP', StateAttraction),
   ('/GenTips', GeneralTipsPage),
-  ('/42', AnswerToLife),
+  ('/Forum', ForumPage),
+  ('/formsubmit', FormSubmit)
 ], debug=True)
