@@ -1,7 +1,11 @@
 import webapp2
 import jinja2
 import os
+
 import datetime
+
+import time
+
 
 EDUCATION_NAV = [
     # Button id      link path           display name
@@ -154,7 +158,7 @@ class HomePage(webapp2.RequestHandler):
         SaveData = Dashboard(button_save = answer, actual_name = actual_name)
         SaveData.put()
         self.redirect('/Home')
-
+        time.sleep(.15)
 class EducationPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/education.html")

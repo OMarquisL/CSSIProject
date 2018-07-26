@@ -4,9 +4,32 @@
 
     {% block content%}
 
+
     <h1>RollerCoasters Rock</h1>
+    <p><a href="https://www.attractionsofamerica.com/states-map.php">Top 10 Attractions in each State</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.attractionsofamerica.com/states-map.php">
+        <input type="text" style = "display:none" name="actual_name" value="State Attractions"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://www.planetware.com/tourist-attractions/usa-us.htm">Planetware: 14 Top Rated Tourist Attractions</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.planetware.com/tourist-attractions/usa-us.htm">
+        <input type="text" style = "display:none" name="actual_name" value="Tourist Attractions"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="http://www.touropia.com/tourist-attractions-in-the-usa/">Touropia: 25 Tourist Attactions</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="http://www.touropia.com/tourist-attractions-in-the-usa/">
+        <input type="text" style = "display:none" name="actual_name" value="Touropia"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+
+
+    <h1>State Attractions</h1>
     <p><a href="https://www.attractionsofamerica.com/states-map.php">Top 10 Attractions in each State</a></p>
     <p><a href="https://www.planetware.com/tourist-attractions/usa-us.htm">Planetware: 14 Top Rated Tourist Attractions</a></p>
     <p><a href="http://www.touropia.com/tourist-attractions-in-the-usa/">Touropia: 25 Tourist Attactions</a></p>
-
+    <p><a href="http://time.com/42038/map-popular-attractions-united-states/">Time: Map of the Most Popular Attraction of Each State</a></p>
+    <p><a href="https://www.usatoday.com/story/travel/experience/america/fifty-states/2017/10/30/50-state-road-trip-free-tourist-attractions-around-usa/807927001/">Free Tourist Attractions in Every State</a></p>
 {%endblock%}
