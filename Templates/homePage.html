@@ -15,8 +15,10 @@
   <body>
 
     <h1 align = "center">GEOHelper</h1>
+<div class="" align = "center" >
 
-        <button class="firstbutton" type="button" id="EducationButton">
+
+        <button class="firstbutton" type="button" id="EducationButton" >
           Education
         </button>
 
@@ -34,8 +36,25 @@
 
         <button type="button" id="AnswerToLF" > DON'T CLICK ME</button>
 
-    <h1 align = "center"> DASHBOARD HERE</h1>
 
+    <!-- <div class = "questioncontainer" style="background-color: {{color}}"> -->
+    <h1 id = "greetingmessage">Save?</h1>
+    <form method="post" action="/Home" >
+      <input type="text" name="answer"></input>
+      <!-- <input type="hidden" name="my_emotion" value="{{emotion}}"></input> -->
+      <input type="submit" value="Submit">
+  </div>
+</div>
+    <h1 align = "center"> DASHBOARD HERE</h1>
+    {%for item in intento%}
+    <p>
+      <a href="{{item.button_save}}">
+
+        {{item.actual_name}}
+
+
+      </a></p>
+    {%endfor%}
   </body>
 
   <footer>

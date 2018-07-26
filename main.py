@@ -54,6 +54,7 @@ class CssiUser(ndb.Model):
   first_name = ndb.StringProperty()
   last_name = ndb.StringProperty()
 
+
 jinja_current_dir = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions = ['jinja2.ext.autoescape'],
@@ -113,12 +114,26 @@ class MainHandler(webapp2.RequestHandler):
     self.response.write('Thanks for signing up, %s!' %
         cssi_user.first_name)
 
-
+class Dashboard(ndb.Model):
+    button_save = ndb.StringProperty();
+    actual_name = ndb.StringProperty();
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_current_dir.get_template("Templates/homePage.html")
-        self.response.write(home_template.render())
+
+        intento = Dashboard.query().fetch()
+        self.response.write(home_template.render(intento=intento))
     #def post(self):
+    def post(self):
+        answer = self.request.get('link')
+        actual_name = self.request.get('actual_name')
+
+        SaveData = Dashboard(button_save = answer, actual_name = actual_name)
+
+
+
+        SaveData.put()
+        self.redirect('/Home')
 
 class EducationPage (webapp2.RequestHandler):
     def get(self):
@@ -272,11 +287,12 @@ class GeneralTipsPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
         self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
-# class DaycarePage (webapp2.RequestHandler):
-#     def get(self):
-#         page_content = jinja_current_dir.get_template("Templates/daycare.html")
-#         self.response.write(page_content.render(navbar_content=EDUCATION_NAV))
-#
+
+class LogInPage(webapp2.RequestHandler):
+    def get(self):
+        login_content = jinja_current_dir.get_template("Templates/login_page.html")
+        self.response.write(login_content.render())
+
 
 class AnswerToLife(webapp2.RequestHandler):
     def get(self):
@@ -284,6 +300,7 @@ class AnswerToLife(webapp2.RequestHandler):
         self.response.write(page_content.render())
 
 app = webapp2.WSGIApplication([
+  ('/Login', LogInPage),
   ('/', MainHandler),
   ('/Home', HomePage),
   ('/Education', EducationPage),
