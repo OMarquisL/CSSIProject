@@ -5,12 +5,52 @@
     {% block content%}
 
       <h1>Sports</h1>
-    <p><a href="https://www.topendsports.com/world/countries/usa.htm">Topend Sports: Guide to American Sports</a></p>
-    <p><a href="https://sport.one/the-top-10-most-popular-sports-in-america/">Top 10 Most popular sports in America</a></p>
-    <p><a href="http://americansportsnet.com/">American Sports Network</a></p>
-    <p><a href="http://www.usatourist.com/english/culture/sports/sports-main.html">USA Tourist: Popular US Sports</a></p>
-    <p><a href="http://www.espn.com/">ESPN</a></p>
-    <p><a href="https://www.immihelp.com/newcomer/sporting-america.html">Immihelp:Sports in America</a></p>
-    <p><a href="https://www.usatoday.com/sports/">USAToday: Sports</a></p>
-    <p><a href="https://www.nytimes.com/section/sports">NYTimes: Sports</a></p>
+    <p><a href="https://www.topendsports.com/world/countries/usa.htm">Topend Sports: Guide to American Sports</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.topendsports.com/world/countries/usa.htm">
+        <input type="text" style = "display:none" name="actual_name" value="American Sports Guide"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://sport.one/the-top-10-most-popular-sports-in-america/">Top 10 Most popular sports in America</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://sport.one/the-top-10-most-popular-sports-in-america/">
+        <input type="text" style = "display:none" name="actual_name" value="Popular Sports"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="http://americansportsnet.com/">American Sports Network</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="http://americansportsnet.com/">
+        <input type="text" style = "display:none" name="actual_name" value="American Sports Network"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="http://www.usatourist.com/english/culture/sports/sports-main.html">USA Tourist: Popular US Sports</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="http://www.usatourist.com/english/culture/sports/sports-main.html">
+        <input type="text" style = "display:none" name="actual_name" value="Popular Sports - USA Tourist"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="http://www.espn.com/">ESPN</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="http://www.espn.com/">
+        <input type="text" style = "display:none" name="actual_name" value="ESPN"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://www.immihelp.com/newcomer/sporting-america.html">Immihelp:Sports in America</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.immihelp.com/newcomer/sporting-america.html">
+        <input type="text" style = "display:none" name="actual_name" value="Immihelp: Sports in America"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://www.usatoday.com/sports/">USAToday: Sports</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.usatoday.com/sports/">
+        <input type="text" style = "display:none" name="actual_name" value="USAToday - Sports"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
+    <p><a href="https://www.nytimes.com/section/sports">NYTimes - Sports</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.nytimes.com/section/sports">
+        <input type="text" style = "display:none" name="actual_name" value="NYTimes: Sports"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
 {%endblock%}
