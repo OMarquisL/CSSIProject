@@ -1,0 +1,20 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      function getUser() {
+        sendRequest("/user", function(result))
+          if (result.user) {
+            handleLoad();
+          } else {
+            sendRequest:"/login", function(result) {
+              var loginlink = '<a href="' + result.url + '">Click Here to log in</a>"';
+              document.getElementById("messagearea").innerHTML = loginLink;
+            }, new Object());
+          }
+        }, new Object());
+      }
+    </script>
+  </body>
+</html>
