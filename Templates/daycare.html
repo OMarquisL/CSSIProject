@@ -6,9 +6,36 @@
     <!-- {% include 'Templates/navbar.html' %} -->
   <center>
   <h1>Daycare</h1>
-  <p><a href="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide">Noodle</a></p>
-  <p><a href="https://www.care.com/better-care-starts-here-p1087-q108247313.html">Care</a></p>
-  <p><a href="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">8 Tips for Choosing Childcare</a></p>
-  <p><a href="https://www.whattoexpect.com/first-year/daycare">Daycare101</a></p>
+  <p><a href="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide">Noodle</a>
+  <form class="hidden" action="/Home" method="post">
+    <input type="text" style = "display:none" name="actual_name" value="Noodle"></input>
+    <input type="text" style = "display:none" name="link" value="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide"></input>
+    <input type="submit" name="button" value="Save"></input>
+  </form>
+</p>
+
+  <p><a href="https://www.care.com/better-care-starts-here-p1087-q108247313.html">Care</a>
+  <!-- <button type="button" name="button">Save</button> -->
+  <form class="hidden" action="/Home" method="post">
+  <input type="text" style = "display:none" name="actual_name" value="Care"></input>
+  <input type="text" style = "display:none" name="link" value="https://www.care.com/better-care-starts-here-p1087-q108247313.html"></input>
+  <input type="submit" name="button" value="Save"></input>
+</form></p>
+  <p><a href="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">8 Tips for Choosing Childcare</a>
+    <!-- <button type="button" name="button">Save</button>  <form class="hidden" action="/Home" method="post"> -->
+    <form class="hidden" action="/Home" method="post">
+      <input type="text" name="link" style = "display:none" value="https://www.parents.com/baby/childcare/basics/8-tips-for-choosing-child-care/">
+      <input type="text" style = "display:none" name="actual_name" value="8 Tips for Choosing Childcare"></input>
+      <input type="submit" name="button" value="Save"></input>
+      </form>
+
+  </p>
+  <p><a href="https://www.whattoexpect.com/first-year/daycare">Daycare101</a>
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://www.whattoexpect.com/first-year/daycare">
+    <input type="text" style = "display:none" name="actual_name" value="Daycare101"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+  </p>
 
 {% endblock %}
