@@ -120,6 +120,20 @@ class MainHandler(webapp2.RequestHandler):
     self.redirect('/Login')
 
 
+
+class LogoutHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.delete_cookie("logged_in")
+        self.response.delete_cookie("user")
+
+        self.redirect('/')
+
+class Dashboard(ndb.Model):
+    button_save = ndb.StringProperty();
+    actual_name = ndb.StringProperty();
+
+
+# class HomeWithDashboardPage(webapp2.RequestHandler):
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
         session = jinja_current_dir.get_template("Templates/signIn_page.html")
@@ -153,39 +167,30 @@ class LoginHandler(webapp2.RequestHandler):
         else:
             self.redirect("/Home")
 
-class LogoutHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.delete_cookie("logged_in")
-        self.response.delete_cookie("user")
+class HomeWithDashboardPage(webapp2.RequestHandler):
+    def post(self):
+        home_template = jinja_current_dir.get_template("Templates/homePage.html")
+        answer = self.request.get('answer')
+        actual_name = self.request.get('submit')
 
-        self.redirect('/')
-
-class Dashboard(ndb.Model):
-    button_save = ndb.StringProperty();
-    actual_name = ndb.StringProperty();
-
-
-# class HomeWithDashboardPage(webapp2.RequestHandler):
-
-class HomePage(webapp2.RequestHandler):
+        SaveData = Dashboard(button_save = answer, actual_name = actual_name)
+        SaveData.put()
+        # self.response.write(home_template.render(button_save = answer, actual_name = actual_name))
+        self.redirect('/Home')
+        # time.sleep(.15)
     def get(self):
         home_template = jinja_current_dir.get_template("Templates/homePage.html")
 
         if self.request.cookies.get("logged_in") == "True":
-            self.response.write(home_template.render(active = True))
-
+            dashboardData = CssiUser.query()
+            self.response.write(home_template.render(active = True, dashboardData = dashboardData))
         # else:
+
+        # self.response.write(home_template.render(dashboardData = dashboardData))
         #     self.response.write(home_template.render(login = True))
+        # self.response.write()
 
-        # self.response.write(home_template.render())
-    def post(self):
-        answer = self.request.get('link')
-        actual_name = self.request.get('actual_name')
 
-        SaveData = Dashboard(button_save = answer, actual_name = actual_name)
-
-        self.redirect('/Home')
-        time.sleep(.15)
 class EducationPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/education.html")
@@ -330,12 +335,6 @@ class GeneralTipsPage(webapp2.RequestHandler):
         page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
         self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
-# class LogInPage(webapp2.RequestHandler):
-#     def get(self):
-#         login_content = jinja_current_dir.get_template("Templates/login_page.html")
-#         self.response.write(login_content.render())
-
-
 class ForumPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/forum.html")
@@ -350,23 +349,12 @@ class WelcomePage(webapp2.RequestHandler):
         welcomePage_content = jinja_current_dir.get_template("Templates/welcome1.html")
         self.response.write(welcomePage_content.render())
 
-# app = webapp2.WSGIApplication([
-
-  # ('/Home', HomeWithDashboardPage),
-# class LoginPage(webapp2.RequestHandler):
-#     def get(self):
-#         login_content = jinja_current_dir.get_template("Templates/login_page.html")
-#         self.response.write(login_content.render())
-    # def post(self):
-    #     print("hello")
-    #     username = self.request.get("user_name")
-    #     newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
 
 app = webapp2.WSGIApplication([
   ('/Login', LoginHandler),
   ('/', MainHandler),
   ('/welcome', WelcomePage),
-  ('/Home', HomePage),
+  ('/Home', HomeWithDashboardPage),
   ('/Education', EducationPage),
   ('/Immigration', ImmigrationPage),
   ('/USLife', USLifePage),
