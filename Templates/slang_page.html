@@ -4,78 +4,51 @@
 
     {% block content%}
     <center>
+      <style>
+      div {
+        background-color: lightgrey;
+        width: 980px;
+        border: 10px solid black;
+        padding: 15px;
+        margin: 80px;
+        margin-left: 200;
+        margin-bottom: 200;
+    }
+    </style>
     <h1>U.S Slang</h1>
-    <p><a href="https://www.umass.edu/ipo/sites/default/files/slang.pdf ">UMass: Slang List</a></p>
-    <p><a href="https://www.smartling.com/blog/40-american-slang-words-and-phrases-you-need-to-know/">Smartling: 40 American Slang Words and Phrases you Need to Know</a></p>
-    <p><a href="https://www.fluentu.com/blog/english/american-english-slang-words-esl/">Fluentu: American/English Slang Words</a></p>
-    <p><a href="https://www.babbel.com/en/magazine/21-totally-useful-american-english-words-and-phrases/">Babbel: American Phrases that are Useful to Know</a></p>
-    <p><a href="https://www.phrases.org.uk/meanings/american-phrases-and-sayings.html">The Phrase Finder: American Phrases and Sayings</a></p>
-
-    <h1>Slang Works</h1>
-
-    <p><a href="https://www.umass.edu/ipo/sites/default/files/slang.pdf ">UMass Slang</a>
+<article>
+  <p><a href="https://www.umass.edu/ipo/sites/default/files/slang.pdf ">UMass Slang - Slang Guide</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.umass.edu/ipo/sites/default/files/slang.pdf">
-        <input type="text" style = "display:none" name="actual_name" value="UMass Slang"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form>
-    </p>
-    <p><a href="https://www.smartling.com/blog/40-american-slang-words-and-phrases-you-need-to-know/">40 American Slang Words and Phrases you Need to Know</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://www.smartling.com/blog/40-american-slang-words-and-phrases-you-need-to-know/">
-        <input type="text" style = "display:none" name="actual_name" value="Slang Words and Phrases"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form>
-    </p>
-    <p><a href="https://www.fluentu.com/blog/english/american-english-slang-words-esl/">American/English Slang Words</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://www.fluentu.com/blog/english/american-english-slang-words-esl/">
-        <input type="text" style = "display:none" name="actual_name" value="English Slang Words"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form>
-    </p>
-
-
-    <!-- <p><a href="https://www.umass.edu/ipo/sites/default/files/slang.pdf ">UMass Slang</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://www.umass.edu/ipo/sites/default/files/slang.pdf">
-        <input type="text" style = "display:none" name="actual_name" value="UMass Slang"></input>
+        <input type="text" style = "display:none" name="actual_name" value="UMass Slang - Slang Guide"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
-    <p><a href="https://www.smartling.com/blog/40-american-slang-words-and-phrases-you-need-to-know/">40 American Slang Words and Phrases you Need to Know</a>
+    <p><a href="https://www.smartling.com/blog/40-american-slang-words-and-phrases-you-need-to-know/">SmartLing - American Slang Words and Phrases</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.smartling.com/blog/40-american-slang-words-and-phrases-you-need-to-know/">
         <input type="text" style = "display:none" name="actual_name" value="SmartLing - American Slang Words and Phrases"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
-    <p><a href="https://www.fluentu.com/blog/english/american-english-slang-words-esl/">American/English Slang Words</a>
+    <p><a href="https://www.fluentu.com/blog/english/american-english-slang-words-esl/">Fluentu - Slang Words</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.fluentu.com/blog/english/american-english-slang-words-esl/">
         <input type="text" style = "display:none" name="actual_name" value="Fluentu - Slang Words"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
-    <p><a href="https://www.babbel.com/en/magazine/21-totally-useful-american-english-words-and-phrases/">American Phrases that are Useful to Know</a>
+    <p><a href="https://www.babbel.com/en/magazine/21-totally-useful-american-english-words-and-phrases/">Babbel - American Phrases that are Useful to Know</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.babbel.com/en/magazine/21-totally-useful-american-english-words-and-phrases/">
-        <input type="text" style = "display:none" name="actual_name" value="American Phrases Useful to Know"></input>
+        <input type="text" style = "display:none" name="actual_name" value="Babbel - American Phrases Useful to Know"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
-    <p><a href="https://www.phrases.org.uk/meanings/american-phrases-and-sayings.html">American Phrases and Sayings</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://www.phrases.org.uk/meanings/american-phrases-and-sayings.html">
-        <input type="text" style = "display:none" name="actual_name" value="Phrases and Sayings"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form></p> -->
 
-    <p><a href="https://www.umass.edu/ipo/sites/default/files/slang.pdf ">UMass Slang</a></p>
-    <p><a href="https://www.smartling.com/blog/40-american-slang-words-and-phrases-you-need-to-know/">40 American Slang Words and Phrases you Need to Know</a></p>
-    <p><a href="https://www.fluentu.com/blog/english/american-english-slang-words-esl/">American/English Slang Words</a></p>
-    <p><a href="https://www.babbel.com/en/magazine/21-totally-useful-american-english-words-and-phrases/">American Phrases that are Useful to Know</a></p>
-    <p><a href="https://www.phrases.org.uk/meanings/american-phrases-and-sayings.html">American Phrases and Sayings</a></p>
-
+</article>
     <h2>Quiz Yourself</h2>
-    <p><a href="https://www.learnamericanenglishonline.com/American_Slang/American_Slang_Quiz1.html">Zoo: American Slang Quiz</a></p>
-    <p><a href="https://matadornetwork.com/life/well-know-american-slang-quiz-2/">Matador Network: How Well Do You Know American Slang Quiz</a></p>
-    <p><a href="https://quizlet.com/244111255/american-slang-flash-cards/">Quizlet: American Slang Flashcards + Test</a></p>
+    <p><a href="https://www.learnamericanenglishonline.com/American_Slang/American_Slang_Quiz1.html">Zoo: American Slang Quiz</a>
+      <form class="hidden" action="/Home" method="post">
+        <input type="text" name="link" style = "display:none" value="https://www.learnamericanenglishonline.com/American_Slang/American_Slang_Quiz1.html">
+        <input type="text" style = "display:none" name="actual_name" value="Zoo: American Slang Quiz"></input>
+        <input type="submit" name="button" value="Save"></input>
+        </form></p>
 
         {%endblock%}

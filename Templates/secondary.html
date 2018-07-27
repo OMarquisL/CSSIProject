@@ -4,8 +4,20 @@
 
     {% block content%}
   <center>
+    <style>
+    div {
+      background-color: lightgrey;
+      width: 980px;
+      border: 10px solid white;
+      padding: 15px;
+      margin: 80px;
+      margin-left: 200;
+      margin-bottom: 200;
+  }
+  </style>
   <h1>Secondary School</h1>
   <h2>Public Schools</h2>
+  <article>
   <p><a href="https://www.usa.gov/study-in-us">USA.gov: How to Study in the United States</a>
     <!-- <button type="button" name="button">Save</button> -->
     <form class="hidden" action="/Home" method="post">
@@ -24,8 +36,10 @@
       </form>
 
   </p>
+</article>
 
   <h2>Charter Schools</h2>
+  <article>
   <p><a href="https://www.usnews.com/education/best-high-schools/national-rankings/charter-school-rankings">USNews - World report and Charter Schools Rankings</a>
     <!-- <button type="button" name="button">Save</button> -->
 
@@ -43,7 +57,9 @@
       <input type="submit" name="button" value="Save"></input>
       </form>
   </p>
+</article>
   <h2>Private & Religious Schools</h2>
+  <article>
   <p><a href="https://nces.ed.gov/surveys/pss/privateschoolsearch/">National Center for Educational Statistics - Private School Search</a>
     <!-- <button type="button" name="button">Save</button> -->
     <form class="hidden" action="/Home" method="post">
@@ -70,6 +86,7 @@
       </form>
 
   </p>
+</article>
   <h2>Resources for High School students</h2>
   <p><a href="https://www.questbridge.org/">Questbridge: Early Admission with a full scholarship! With a second chance of admission through QuestBridge Regular Decision.</a>
     <!-- <button type="button" name="button">Save</button> -->

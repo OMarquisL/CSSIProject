@@ -4,17 +4,23 @@
 
     {% block content%}
     <center>
+      <style>
+      div {
+        background-color: lightgrey;
+        width: 980px;
+        border: 10px solid black;
+        padding: 15px;
+        margin: 80px;
+        margin-left: 200;
+        margin-bottom: 200;
+    }
+    </style>
     <h1>US Holidays and Historical Figures</h1>
+    <article>
     <p><a href="https://www.infoplease.com/holidays-america">Infoplease - Holidays of America</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.infoplease.com/holidays-america">
         <input type="text" style = "display:none" name="actual_name" value="Infoplease - Holidays of America"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form>    </p>
-    <p><a href="https://americanenglish.state.gov/resources/celebrate-holidays-usa">American English - Celebrate US Holidays</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://americanenglish.state.gov/resources/celebrate-holidays-usa">
-        <input type="text" style = "display:none" name="actual_name" value="American English - Celebrate US Holidays"></input>
         <input type="submit" name="button" value="Save"></input>
         </form>    </p>
     <p><a href="https://www.immihelp.com/newcomer/major-holidays-festivals-america.html">Immihelp - Major Holidays and Festivals</a>
@@ -24,33 +30,24 @@
         <input type="submit" name="button" value="Save"></input>
         </form></p>
 
-
+</article>
     <h1>United States Holidays</h1>
+    <article>
     <p><a href="https://www.infoplease.com/holidays-america">Infoplease: Holidays of America</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.infoplease.com/holidays-america">
         <input type="text" style = "display:none" name="actual_name" value="InfoPlease - Holidays of America"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
-    <p><a href="https://americanenglish.state.gov/resources/celebrate-holidays-usa">AmericanEnglish: Celebrate US Holidays</a>
-       <form class="hidden" action="/Home" method="post">
-          <input type="text" name="link" style = "display:none" value="https://americanenglish.state.gov/resources/celebrate-holidays-usa">
-          <input type="text" style = "display:none" name="actual_name" value="American English - Celebrate US Holidays"></input>
-          <input type="submit" name="button" value="Save"></input>
-          </form></p>
     <p><a href="https://www.immihelp.com/newcomer/major-holidays-festivals-america.html">Immihelp: Major Holidays and Festivals</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.immihelp.com/newcomer/major-holidays-festivals-america.html">
         <input type="text" style = "display:none" name="actual_name" value="ImmiHelp - Major Holidays and Festivals"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
+      </article>
     <h1>United States Historical Figures</h1>
-    <p><a href="https://www.ranker.com/list/most-important-leaders-in-us-history/mel-judson">Ranker: Important Leaders in US History</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://www.ranker.com/list/most-important-leaders-in-us-history/mel-judson">
-        <input type="text" style = "display:none" name="actual_name" value="Ranker - Leaders In US History"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form></p>
+    <article>
     <p><a href="https://www.biographyonline.net/people/america/changed-us.html">Biography Online: People who Changed the United States</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.biographyonline.net/people/america/changed-us.html">
@@ -75,4 +72,5 @@
         <input type="text" style = "display:none" name="actual_name" value="Pop Culture Icons of 20th Century"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
+      </article>
 {% endblock %}

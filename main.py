@@ -254,8 +254,12 @@ class LoginHandler(webapp2.RequestHandler):
 
         session_iniciada = False
         q = CssiUser.query().fetch()
+        print q
         for user in q:
-            if username == CssiUser.username and password == CssiUser.password:
+            if username == user.username and password == user.password:
+                print "Registers as correct"
+                print username
+                print password
 
                 self.response.set_cookie("logged_in","True")
                 self.response.set_cookie("user", user.username)
@@ -264,8 +268,9 @@ class LoginHandler(webapp2.RequestHandler):
                 self.redirect('/Home')
                 return
 
-            else:
+            if username != user.username and password != user.password:
                 session_iniciada = False
+                error = True
                 self.response.delete_cookie("logged_in")
                 self.response.delete_cookie("user")
 
@@ -491,7 +496,10 @@ class WelcomePage(webapp2.RequestHandler):
         welcomePage_content = jinja_current_dir.get_template("Templates/welcome1.html")
         self.response.write(welcomePage_content.render())
 
-
+class AboutPage(webapp2.RequestHandler):
+    def get(self):
+        aboutPage_content = jinja_current_dir.get_template("Templates/about_page.html")
+        self.response.write(aboutPage_content.render())
 # app = webapp2.WSGIApplication([
 
   # ('/Home', HomeWithDashboardPage)
@@ -505,6 +513,7 @@ class WelcomePage(webapp2.RequestHandler):
     #     newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
 
 app = webapp2.WSGIApplication([
+  ('/About', AboutPage),
   ('/Login', LoginHandler),
   ('/', MainHandler),
   ('/SignUp', SignUpPageHandler),

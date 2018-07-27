@@ -4,7 +4,20 @@
 
     {% block content%}
       <center>
+        <style>
+        div {
+          background-color: lightgrey;
+          width: 980px;
+          border: 10px solid black;
+          padding: 15px;
+          margin: 80px;
+          margin-left: 200;
+          margin-bottom: 200;
+      }
+      </style>
+
       <h1>Sports</h1>
+      <article>
     <p><a href="https://www.topendsports.com/world/countries/usa.htm">Topend Sports - Guide to American Sports</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.topendsports.com/world/countries/usa.htm">
@@ -53,4 +66,5 @@
         <input type="text" style = "display:none" name="actual_name" value="NYTimes - Sports"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
+      </article>
 {%endblock%}

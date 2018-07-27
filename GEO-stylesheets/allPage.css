@@ -14,17 +14,20 @@
 h1{
   color: #080708;
   font-size: 35px;
+  font-family: "Roboto", sans-serif;
 }
 
 h2{
   color: #0B132B;
   font-size: 30px;
+    font-family: "Roboto", sans-serif;
 
 }
 
 h3{
   color: #0B132B;
   font-size: 27px;
+    font-family: "Roboto", sans-serif;
 }
 
 
@@ -38,8 +41,24 @@ h3{
 body{
   background: #E09F3E;
 
+
+}
+.column {
+    float: left;
+    width: 50%;
 }
 
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+article {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
 /* Hide the images by default */
 /* .mySlides {
     display: none;
