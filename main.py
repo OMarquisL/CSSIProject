@@ -61,6 +61,7 @@ class CssiUser(ndb.Model):
     username = ndb.StringProperty()
     email = ndb.StringProperty()
     password = ndb.StringProperty()
+    saved_info = ndb.StringProperty()
 #   user_name = ndb.StringProperty()
 #   last_activity = ndb.DateTimeProperty()
 
@@ -115,6 +116,7 @@ class MainHandler(webapp2.RequestHandler):
     username = self.request.get('Username'),
     email = self.request.get('Email'),
     password = self.request.get('Password'))
+    # saved_info = self.request.get(''))
 
     cssi_user.put()
     self.response.set_cookie("logged_in", "True")
@@ -146,12 +148,12 @@ class LogoutHandler(webapp2.RequestHandler):
     def get(self):
         self.response.delete_cookie("logged_in")
         self.response.delete_cookie("user")
-
+        print('Hello')
         self.redirect('/')
 
-class Dashboard(ndb.Model):
-    button_save = ndb.StringProperty();
-    actual_name = ndb.StringProperty();
+# class Dashboard(ndb.Model):
+#     button_save = ndb.StringProperty();
+#     actual_name = ndb.StringProperty();
 
 
 # class HomeWithDashboardPage(webapp2.RequestHandler):
@@ -206,24 +208,30 @@ class LoginHandler(webapp2.RequestHandler):
 #         self.redirect('/Home')
 #         # time.sleep(.15)
 
-class LogoutHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.delete_cookie("logged_in")
-        self.response.delete_cookie("user")
-
-        self.redirect('/')
+# class LogoutHandler(webapp2.RequestHandler):
+#     def get(self):
+#         self.response.delete_cookie("logged_in")
+#         self.response.delete_cookie("user")
+#
+#         self.redirect('/')
 
 class Dashboard(ndb.Model):
     button_save = ndb.StringProperty();
+    username = ndb.StringProperty();
     actual_name = ndb.StringProperty();
+
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
+        username = self.request.cookies.get('user')
         home_template = jinja_current_dir.get_template("Templates/homePage.html")
-
-
-        intento = Dashboard.query().fetch()
-        self.response.write(home_template.render(intento=intento))
+        if username:
+            intento = Dashboard.query(Dashboard.username == username).fetch()
+            intento = filter(lambda x : x.actual_name, intento)
+        else:
+            intento = []
+        # intento = Dashboard.query(username == username)
+        self.response.write(home_template.render(intento=intento, user=(username or 'Guest')))
     #def post(self):
 
         # if self.request.cookies.get("logged_in") == "True":
@@ -236,9 +244,15 @@ class HomePage(webapp2.RequestHandler):
     def post(self):
         answer = self.request.get('link')
         actual_name = self.request.get('actual_name')
+        username = self.request.cookies.get('user')
 
-        SaveData = Dashboard(button_save = answer, actual_name = actual_name)
-        SaveData.put()
+        print Dashboard.username
+
+        # print cssi_user.username
+
+        if username:
+            SaveData = Dashboard(button_save = answer, actual_name = actual_name, username = username)
+            SaveData.put()
         self.redirect('/Home')
         time.sleep(.15)
 class EducationPage (webapp2.RequestHandler):
@@ -428,10 +442,23 @@ class AboutPage(webapp2.RequestHandler):
         username = self.request.get("user_name")
         newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
 
+class DeletePage(webapp2.RequestHandler):
+    def post(self):
+        key = self.request.get("key")
+        self.response.write(key)
+        ndb.Key(urlsafe=key).delete()
+        sleep(.5)
+        self.redirect('/Home')
+        # content = jinja_current_dir.get_template()
+
+
+
 app = webapp2.WSGIApplication([
   # ('/welcome', MainHandler),
   ('/About', AboutPage),
+  ('/Delete', DeletePage),
   ('/Login', LoginHandler),
+  ('/LogOut', LogoutHandler),
   ('/', MainHandler),
   ('/SignUp', SignUpPageHandler),
   ('/welcome', WelcomePage),

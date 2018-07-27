@@ -48,6 +48,8 @@
   <body>
 
     <h1 align = "center">GEO Helper</h1>
+    Hello, {{user}}
+    <p align = "center"><a href="/LogOut"><button type="button" name="button">Logout</button></a></p>
     <div class="" align = "center" >
         <ul>
         <form method="post" action="/Home" >
@@ -97,7 +99,7 @@
       <!-- <input type="hidden" name="my_emotion" value="{{emotion}}"></input> -->
       <!-- <input type="submit" value="Submit"> -->
 
-    </from>
+    </form>
 
   </div>
 </div>
@@ -109,7 +111,12 @@
         {{item.actual_name}}
 
 
-      </a></p>
+      </a>
+        <form class=""  action="/Delete" method="post">
+              <input type="text"  name="key" style="display:none" value="{{item.key.urlsafe()}}">
+              <input type="Submit" value="Delete" >
+        </form>
+
     {%endfor%}
     <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
 <script>
