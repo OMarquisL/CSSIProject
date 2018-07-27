@@ -90,9 +90,9 @@ jinja_current_dir = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
   def get(self):
-
-    welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
-    self.response.write(welcome_template.render())
+    #
+    # welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
+    # self.response.write(welcome_template.render())
   #   user = users.get_current_user()
   #   # If the user is logged in...
   #   if user:
@@ -391,9 +391,6 @@ class GeneralTipsPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
         self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
-
-<<<<<<< HEAD
-=======
 # class LogInPage(webapp2.RequestHandler):
 #     def get(self):
 #         login_content = jinja_current_dir.get_template("Templates/login_page.html")
@@ -421,13 +418,12 @@ class WelcomePage(webapp2.RequestHandler):
 #     def get(self):
 #         login_content = jinja_current_dir.get_template("Templates/login_page.html")
 #         self.response.write(login_content.render())
-    def post(self):
-        print("hello")
-        username = self.request.get("user_name")
-        newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
+    # def post(self):
+    #     print("hello")
+    #     username = self.request.get("user_name")
+    #     newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
 
 app = webapp2.WSGIApplication([
-  ('/welcome', MainHandler),
   ('/Login', LoginHandler),
   ('/', MainHandler),
   ('/welcome', WelcomePage),
