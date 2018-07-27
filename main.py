@@ -85,9 +85,29 @@ class ForumPage(webapp2.RequestHandler):
 
 class FormSubmit(webapp2.RequestHandler):
     def get(self):
-        user_name = self.request.get("user_name")
-        user = CssiUser.query(CssiUser.user_name == user_name)
-        question = Question(askerinfo = user, timeasked = datetime.datetime.now(), question = self.request.get("question"), title = self.request.get("title"))
+        page_content = jinja_current_dir.get_template("Templates/formsubmit.html")
+        self.response.write(page_content.render())
+    def get(self):
+        print "Made it this far"
+        #user_name = self.request.get("user_name")
+        #user = CssiUser.query(CssiUser.user_name == user_name)
+        question = Question(timeasked = datetime.datetime.now(), question = self.request.get("question"), title = self.request.get("title"))
+        question.put()
+        print "Saved question."
+        self.redirect("/questions")
+        # self.response.out.write("Yo I saved your question you're welcome")
+
+
+class ShowQuestions(webapp2.RequestHandler):
+    def get(self):
+        params = {}
+        params['questions'] = []
+        for question in Question.query().fetch():
+            params['questions'].append(question)
+        content = jinja_current_dir.get_template("Templates/questions.html")
+        self.response.write(content.render(params))
+
+
 
 
 jinja_current_dir = jinja2.Environment(
@@ -98,8 +118,75 @@ jinja_current_dir = jinja2.Environment(
 class MainHandler(webapp2.RequestHandler):
   def get(self):
 
-    welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
-    self.response.write(welcome_template.render())
+    #
+    # welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
+    # self.response.write(welcome_template.render())
+  #   user = users.get_current_user()
+  #   # If the user is logged in...
+  #   if user:
+  #     email_address = user.nickname()
+  #     cssi_user = CssiUser.get_by_id(user.user_id())
+  #     signout_link_html = '<a href="%s">sign out</a>' % (
+  #         users.create_logout_url('/'))
+  #     # If the user has previously been to our site, we greet them!
+  #     if cssi_user:
+  #       self.response.write('''
+  #           Welcome %s %s (%s)! <br> %s <br>''' % (
+  #             cssi_user.first_name,
+  #             cssi_user.last_name,
+  #             email_address,
+  #             signout_link_html))
+  #     # If the user hasn't been to our site, we ask them to sign up
+  #     else:
+  #       self.response.write('''
+  #           Welcome to our site, %s!  Please sign up! <br>
+  #           <form method="post" action="/">
+  #           <input type="text" name="first_name">
+  #           <input type="text" name="last_name">
+  #           <input type="text" name="user_name">
+  #           <input type="text" name="password">
+  #           <input type="submit">
+  #           </form><br> %s <br>
+  #           ''' % (email_address, signout_link_html))
+  #   # Otherwise, the user isn't logged in!
+  #   else:
+  #     self.response.write('''
+  #       Please log in to use our site! <br>
+  #       <a href="%s">Sign in</a>''' % (
+  #         users.create_login_url('/')))
+  #
+  # def post(self):
+  #   bye_template = jinja_current_dir.get_template("Templates/Home.html")
+  #   self.response.write(bye_template.render())
+  #   user = users.get_current_user()
+  #   if not user:
+  #     # You shouldn't be able to get here without being logged in
+  #     self.error(500)
+  #     return
+  #   cssi_user = CssiUser(
+  #       first_name=self.request.get('first_name'),
+  #       last_name=self.request.get('last_name'),
+  #       id=user.user_id())
+  #   cssi_user.put()
+  #   self.response.write('Thanks for signing up, %s!' %
+  #       cssi_user.first_name)
+  #
+  # def post(self):
+  #     username = self.request.get("user_name")
+  #     newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
+
+
+
+    welcome_template = jinja_current_dir.get_template("Templates/signup_page.html")
+    if self.request.cookies.get("loggen_in") == True:
+        self.response.write(welcome_template.render(success =True, user = self.request.cookies.get("user")))
+
+    else:
+        self.response.write(welcome_template.render(failure = True))
+
+
+    # welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
+    # self.response.write(welcome_template.render())
 
     # welcome_template = jinja_current_dir.get_template("Templates/signup_page.html")
     # if self.request.cookies.get("loggen_in") == True:
@@ -107,6 +194,7 @@ class MainHandler(webapp2.RequestHandler):
 
     # else:
     #     self.response.write(welcome_template.render(failure = True))
+
     # If the user is logged in...
   def post(self):
     home_template = jinja_current_dir.get_template("Templates/signup_page.html")
@@ -230,7 +318,7 @@ class HomePage(webapp2.RequestHandler):
             intento = filter(lambda x : x.actual_name, intento)
         else:
             intento = []
-        # intento = Dashboard.query(username == username)
+        print(intento)
         self.response.write(home_template.render(intento=intento, user=(username or 'Guest')))
     #def post(self):
 
@@ -405,7 +493,6 @@ class GeneralTipsPage(webapp2.RequestHandler):
         page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
         self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
 
-
 # class LogInPage(webapp2.RequestHandler):
 #     def get(self):
 #         login_content = jinja_current_dir.get_template("Templates/login_page.html")
@@ -417,9 +504,6 @@ class ForumPage(webapp2.RequestHandler):
         page_content = jinja_current_dir.get_template("Templates/forum.html")
         self.response.write(page_content.render())
 
-class FormSubmit(webapp2.RequestHandler):
-    def get(self):
-        print self.request.get("firstname")
 
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
@@ -437,10 +521,10 @@ class AboutPage(webapp2.RequestHandler):
 #     def get(self):
 #         login_content = jinja_current_dir.get_template("Templates/login_page.html")
 #         self.response.write(login_content.render())
-    def post(self):
-        print("hello")
-        username = self.request.get("user_name")
-        newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
+    # def post(self):
+    #     print("hello")
+    #     username = self.request.get("user_name")
+    #     newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
 
 class DeletePage(webapp2.RequestHandler):
     def post(self):
@@ -454,14 +538,13 @@ class DeletePage(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-  # ('/welcome', MainHandler),
   ('/About', AboutPage),
   ('/Delete', DeletePage),
   ('/Login', LoginHandler),
   ('/LogOut', LogoutHandler),
-  ('/', MainHandler),
+  ('/', WelcomePage),
   ('/SignUp', SignUpPageHandler),
-  ('/welcome', WelcomePage),
+ # x ('/welcome', WelcomePage),
   ('/Home', HomePage),
   ('/Education', EducationPage),
   ('/Immigration', ImmigrationPage),
@@ -489,5 +572,6 @@ app = webapp2.WSGIApplication([
   ('/StateAttrP', StateAttraction),
   ('/GenTips', GeneralTipsPage),
   ('/Forum', ForumPage),
-  ('/formsubmit', FormSubmit)
+  ('/formsubmit', FormSubmit),
+  ('/questions', ShowQuestions),
 ], debug=True)

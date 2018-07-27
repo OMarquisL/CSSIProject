@@ -4,207 +4,152 @@
     <meta charset="utf-8">
     <link rel="stylesheet"  type="text/css" href="/GEO-stylesheets/homePage.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/scripts.js"></script>
 
     <title>GeoHelper</title>
     <style>
-      ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color: #333;
-      }
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+    .w3-sidebar {
+      z-index: 3;
+      width: 250px;
+      top: 43px;
+      bottom: 0;
+      height: inherit;
+      margin-top: 60px;
+      background-color: #3D511A
+    }
+    .header {
+      background-color: #E09F3E;
+      padding: 20px;
+      text-align: center;
+      padding: 20px
+    }
 
-      li {
-          float: left;
-          border-right:1px solid #080708;
-      }
+    .w3-top
+    { margin-top: 50px; }
 
-      li:last-child {
-          border-right: none;
+    @media screen and (max-width: 400px) {
+        .topnav a {
+            float: none;
+            width: 100%;
+        }
       }
+      .dynamic-content {
+    display:none;
+}
 
-      li a {
-          display: block;
-          color: white;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-      }
-
-      li a:hover:not(.active) {
-          background-color: #111;
-      }
-
-      .active {
-          background-color: #243010;
-      }
     </style>
   </head>
-
   <body>
-
+  <div class="Header" align = "center" >
     <h1 align = "center">GEO Helper</h1>
-    Hello, {{user}}
-    <p align = "center"><a href="/LogOut"><button type="button" name="button">Logout</button></a></p>
-    <div class="" align = "center" >
-        <ul>
-        <form method="post" action="/Home" >
-          <li><a class="active" href="/Education">Education</a>
-          </li>
-          <li><a class="active" href="/Immigration">Immigration Information</a>
-          </li>
-          <li><a class="active" href="/USLife">Living in the US</a>
-          </li>
-          <li><a class="active" href="/USCulture">US Culture</a>
-          </li>
-          <li><a class="active" href="/Forum">Advice Forum</a>
-          </li>
-          <li><a class="active" href="/About">About</a>
-          </li>
-
-        </ul>
-        <!-- <input type="text" name="answer" >
-        <input type="text" name="submit" > -->
-        <!-- <button class="firstbutton" type="button" id="EducationButton">
-
-
-        <button class="firstbutton" type="button" id="EducationButton" >
-
-          Education
-        </button>
-
-        <button class="firstbutton" type="button" id="ImmiButton">
-            Immigration Information
-        </button>
-
-        <button class="firstbutton" type="button" id="USLifeButton">
-          Living in the US
-        </button>
-
-        <button class="firstbutton" type="button" id="USCultureButton">
-            US Culture
-        </button>
-
-        <button class="firstbutton" type="button" id="Forum">Advice Forum</button> -->
-
-
-    <!-- <div class = "questioncontainer" style="background-color: {{color}}"> -->
-    <!-- <h1 id = "greetingmessage">Save?</h1> -->
-
-      <!-- <input type="text" name="answer"></input> -->
-      <!-- <input type="hidden" name="my_emotion" value="{{emotion}}"></input> -->
-      <!-- <input type="submit" value="Submit"> -->
-
-    </form>
-
   </div>
-</div>
-    <h1 align = "center"> DASHBOARD HERE</h1>
-    {%for item in intento%}
-    <p>
-      <a href="{{item.button_save}}">
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="/Education">Education</a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="/Immigration">Immigration Information</a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="/USLife">Living in the US</a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="/USCulture">US Culture</a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="/Forum">Advice Forum</a>
+      <a class="w3-bar-item w3-button w3-theme-l1" href="/LogOut">Logout</a>
+    </div>
+  </div>
 
-        {{item.actual_name}}
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <h4 class="w3-bar-item"><b>Menu</b></h4>
+      <div id="Resources"><a class="w3-bar-item" href="javascript:showResources();">My Saved Resources</a>
+      <div id="Questions"><a class="w3-bar-item" href="javascript:showQuestions();">My Questions</a>
+      <div id="Responses"><a class="w3-bar-item" href="javascript:showResponses();">My Responses</a></div>
+  </nav>
 
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-      </a>
-        <form class=""  action="/Delete" method="post">
-              <input type="text"  name="key" style="display:none" value="{{item.key.urlsafe()}}">
-              <input type="Submit" value="Delete" >
-        </form>
+  <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+  <div class="w3-main" style="margin-left:250px">
 
-    {%endfor%}
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-<script>
-// Initialize Firebase
-var config = {
- apiKey: "AIzaSyCEo-A25T0roMT2V-ZUMF9dKxZZo45fLt4",
- authDomain: "geo-industries.firebaseapp.com",
- databaseURL: "https://geo-industries.firebaseio.com",
- projectId: "geo-industries",
- storageBucket: "geo-industries.appspot.com",
- messagingSenderId: "457393055582"
-};
-firebase.initializeApp(config);
-</script>
- <script type="text/javascript">
-   console.log("yo");
-   initApp = function() {
-     firebase.auth().onAuthStateChanged(function(user) {
-       console.log("Auth State Changed")
-       if (user) {
-         // User is signed in.
-         var displayName = user.displayName;
-         var email = user.email;
-         var emailVerified = user.emailVerified;
-         var photoURL = user.photoURL;
-         var uid = user.uid;
-         var phoneNumber = user.phoneNumber;
-         var providerData = user.providerData;
-         user.getIdToken().then(function(accessToken) {
-           document.getElementById('sign-in-status').textContent = 'Signed in';
-           document.getElementById('sign-in').textContent = 'Sign out';
-           document.getElementById('account-details').textContent = JSON.stringify({
-             displayName: displayName,
-             email: email,
-             emailVerified: emailVerified,
-             phoneNumber: phoneNumber,
-             photoURL: photoURL,
-             uid: uid,
-             accessToken: accessToken,
-             providerData: providerData
-           }, null, '  ');
-           console.log("About to send request")
-           sendRequest("/Login", ()=>{}, {'user_name': displayName})
+    <div class="w3-row w3-padding-64">
+      <div class="w3-twothird w3-container">
+          <div id="dash"><h1 class="w3-text-teal">My Dashboard</h1>
+          <p>Hello, {{user}}! Welcome to your dashboard! Select what you would like to see from the menu on the side!</p></div>
+          <div id="resour" style="display: none;">
+            <h1 class="w3-text-teal">My Resources</h1>
+            {%for item in intento%}
+	          <p>
+	             <a href="{{item.button_save}}">
+			             {{item.actual_name}}
+			         </a>
+	             <form class=""  action="/Delete" method="post">
+	                <input type="text"  name="key" style="display:none" value="{{item.key.urlsafe()}}">
+	                <input type="Submit" value="Delete" >
+	             </form>
+			       </p>
+	           {%endfor%}
+          </div>
+          <div id=quest style="display: none;"><h1 class="w3-text-teal">My Questions</h1></div>
+          <div id=resp style="display: none;"><h1 class="w3-text-teal">My Responses</h1></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div id="NewContent" style="display: none;">This is one div that we can toggle.</div>
+  <div id="OldContent" style="display: block;">This is some other div that we can toggle.</div>-->
+  <script>
+  function toggleContent() {
+    toggle("resp");
+    toggle("dash");
+    toggle("resour");
+    toggle("quest");
+  }
+  function showResources() {
+    hide("resp");
+    hide("dash");
+    show("resour");
+    hide("quest");
+  }
+  function showQuestions() {
+    hide("resp");
+    hide("dash");
+    hide("resour");
+    show("quest");
+  }
+  function showResponses() {
+    show("resp");
+    hide("dash");
+    hide("resour");
+    hide("quest");
+  }
+  function w3_open() {
+      if (mySidebar.style.display === 'block') {
+          mySidebar.style.display = 'none';
+          overlayBg.style.display = "none";
+      } else {
+          mySidebar.style.display = 'block';
+          overlayBg.style.display = "block";
+      }
+  }
+  function w3_close() {
+      mySidebar.style.display = "none";
+      overlayBg.style.display = "none";
+  }
 
-         });
-       } else {
-         // User is signed out.
-         document.getElementById('sign-in-status').textContent = 'Signed out';
-         document.getElementById('sign-in').textContent = 'Sign in';
-         document.getElementById('account-details').textContent = 'null';
-       }
-     }, function(error) {
-       console.log(error);
-     });
-   };
-
-   window.addEventListener('load', function() {
-     console.log("onload")
-     initApp()
-   });
-   function sendRequest(destinationUrl, callbackFunction, parameters){
-     var xmlHttp = new XMLHttpRequest();
-     xmlHttp.onreadystatechange = function() {
-       if (xmlHttp.readyState == 4) {
-         var result = JSON.parse(xmlHttp.responseText);
-         if (result.error) {
-           document.write(result.error);
-         } else {
-           callbackFunction(result);
-           // for (var i = 0; i < result.messages.length; i++) {
-           //   document.write("<p>");
-           //   document.write(result.messages[i].time + ':<br>');
-           //   document.write(result.messages[i].text);
-           //   document.write("</p>");
-           }
-         }
-       }
-     var paramString = "";
-     for (var param in parameters) {
-       paramString += param + "=" + escape(parameters[param]) + "&";
-     }
-     console.log(paramString);
-     xmlHttp.open("POST", destinationUrl);
-     xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-     console.log(paramString);
-     xmlHttp.send(paramString);
-   }
- </script> -->
+  function changeDash() {
+    toggle("Resources");
+  }
+  </script>
   </body>
     <!-- <header class="masthead mb-auto">
        <div class="inner"> -->

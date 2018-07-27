@@ -3,6 +3,10 @@ api_version: 1
 threadsafe: yes
 
 handlers:
+- url: /scripts\.js
+  static_files: scripts.js
+  upload: scripts\.js
+
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
