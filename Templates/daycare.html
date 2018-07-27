@@ -6,7 +6,19 @@
     <!-- {% include 'Templates/navbar.html' %} -->
   <center>
   <h1>Daycare and Preschool</h1>
+  <style>
+  div {
+    background-color: lightgrey;
+    width: 980px;
+    border: 10px solid black;
+    padding: 15px;
+    margin: 80px;
+    margin-left: 200;
+    margin-bottom: 200;
+}
+</style>
   <h2>Daycare/Preschool Search Advice</h2>
+  <Article>
   <p><a href="https://www.noodle.com/articles/how-preschool-and-child-care-work-state-guide">Noodle: A State-by-State Guide on How Preschool and Child Care Work</a>
   <form class="hidden" action="/Home" method="post">
     <input type="text" style = "display:none" name="actual_name" value="Noodle: A State-by-State Guide on How Preschool and Child Care Work"></input>
@@ -43,7 +55,16 @@
     <input type="submit" name="button" value="Save"></input>
     </form>
   </p>
+</article>
   <h2>Find Local Daycare Centers and Preschools</h2>
+  <article>
+    <p><a href="https://www.care.com/better-care-starts-here-p1087-q108247313.html">Care: The world's largest online destination for care, connecting families with caregivers and caring companies to help you be there for the ones you love.</a>
+    <!-- <button type="button" name="button">Save</button> -->
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" style = "display:none" name="actual_name" value="Care: The world's largest online destination for care, connecting families with caregivers and caring companies to help you be there for the ones you love."></input>
+    <input type="text" style = "display:none" name="link" value="https://www.care.com/better-care-starts-here-p1087-q108247313.html"></input>
+    <input type="submit" name="button" value="Save"></input>
+  </form></p>
   <p><a href="https://families.naeyc.org/find-quality-child-care">NAEYC - Maintains a list of programs that are currently accredited to assist individuals in finding NAEYC-accredited daycare and preschool programs in their area.</a>
     <form class="hidden" action="/Home" method="post">
     <input type="text" name="link" style = "display:none" value="https://families.naeyc.org/find-quality-child-care">
@@ -58,11 +79,12 @@
     <input type="submit" name="button" value="Save"></input>
     </form>
   </p>
-  <p><a href="https://www.care.com/better-care-starts-here-p1087-q108247313.html">Care: The world's largest online destination for care, connecting families with caregivers and caring companies to help you be there for the ones you love.</a>
-  <!-- <button type="button" name="button">Save</button> -->
-  <form class="hidden" action="/Home" method="post">
-  <input type="text" style = "display:none" name="actual_name" value="Care: The world's largest online destination for care, connecting families with caregivers and caring companies to help you be there for the ones you love."></input>
-  <input type="text" style = "display:none" name="link" value="https://www.care.com/better-care-starts-here-p1087-q108247313.html"></input>
-  <input type="submit" name="button" value="Save"></input>
-</form></p>
+  <p><a href="https://www.angieslist.com/research/child-care-daycare-center/">Angies List - n American home services website. Founded in 1995, it is an online directory that allows users to read and publish crowd-sourced reviews of local businesses and contractors. </a>
+    <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://www.angieslist.com/research/child-care-daycare-center/">
+    <input type="text" style = "display:none" name="actual_name" value="Angies List - n American home services website. Founded in 1995, it is an online directory that allows users to read and publish crowd-sourced reviews of local businesses and contractors. "></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+  </p>
+</article>
 {% endblock %}

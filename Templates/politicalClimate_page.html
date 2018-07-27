@@ -4,8 +4,31 @@
 
     {% block content%}
     <center>
+      <style>
+      div {
+        background-color: lightgrey;
+        width: 980px;
+        border: 10px solid black;
+        padding: 15px;
+        margin: 80px;
+        margin-left: 200;
+        margin-bottom: 200;
+    }
+    </style>
     <h1>Political Climate</h1>
-
+<article>
+  <p><a href="https://www.isidewith.com/polls">I Side With - Common Political Debates</a>
+    <form class="hidden" action="/Home" method="post">
+      <input type="text" name="link" style = "display:none" value="https://www.isidewith.com/polls">
+      <input type="text" style = "display:none" name="actual_name" value="I Side With - Common Political Debates"></input>
+      <input type="submit" name="button" value="Save"></input>
+      </form></p>
+      <p><a href="https://www.hrw.org/world-report/2018/country-chapters/united-states">Human Rights Watch(HRW) US Country Report</a>
+        <form class="hidden" action="/Home" method="post">
+          <input type="text" name="link" style = "display:none" value="https://www.hrw.org/world-report/2018/country-chapters/united-states">
+          <input type="text" style = "display:none" name="actual_name" value="Human Rights Watch(HRW) US Country Report"></input>
+          <input type="submit" name="button" value="Save"></input>
+          </form></p>
     <p><a href="https://www.bbc.com/news/world-us-canada-16761057">BBC United States Country Profile - Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates and entertains - wherever you are, whatever your age.</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.bbc.com/news/world-us-canada-16761057">
@@ -13,20 +36,9 @@
         <input type="submit" name="button" value="Save"></input>
         </form>
     </p>
-    <p><a href="https://www.hrw.org/world-report/2018/country-chapters/united-states">Human Rights Watch(HRW) US Country Report</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://www.hrw.org/world-report/2018/country-chapters/united-states">
-        <input type="text" style = "display:none" name="actual_name" value="Human Rights Watch(HRW) US Country Report"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form></p>
-    <p><a href="https://www.isidewith.com/polls">I Side With - Common Political Debates</a>
-      <form class="hidden" action="/Home" method="post">
-        <input type="text" name="link" style = "display:none" value="https://www.isidewith.com/polls">
-        <input type="text" style = "display:none" name="actual_name" value="I Side With - Common Political Debates"></input>
-        <input type="submit" name="button" value="Save"></input>
-        </form></p>
-
+</article>
     <h2>Today's News</h2>
+  <article>
     <p><a href="https://www.politico.com/politics">Politico - Today's News</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.politico.com/politics">
@@ -40,8 +52,9 @@
         <input type="text" style = "display:none" name="actual_name" value="Washington Times - National News"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
+      </article>
     <h2>Overview of Political Climate in 2018</h2>
-
+<article>
     <p><a href="https://www.infoplease.com/world/current-events-world-us-science-and-business-news">Infoplease - United States Current Events</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.infoplease.com/world/current-events-world-us-science-and-business-news">
@@ -66,6 +79,7 @@
         <input type="text" style = "display:none" name="actual_name" value="Associated Press - 2018 Public's Agenda"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
+      </article>
 {% endblock%}
 
 <!--

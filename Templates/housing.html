@@ -4,7 +4,19 @@
 
     {% block content%}
     <center>
+      <style>
+      div {
+        background-color: lightgrey;
+        width: 980px;
+        border: 10px solid black;
+        padding: 15px;
+        margin: 80px;
+        margin-left: 200;
+        margin-bottom: 200;
+    }
+    </style>
     <h1>Housing resources</h1>
+    <Article>
     <p><a href="https://www.interexchange.org/travel-abroad/work-travel-usa/resources/housing/">Interexchange: How to Find and Rent Housing</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.interexchange.org/travel-abroad/work-travel-usa/resources/housing/">
@@ -42,7 +54,9 @@
         <input type="text" style = "display:none" name="actual_name" value="BanRate - Must-Dos Before Buying a Home"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
+      </article>
     <h2>Search for Housing</h2>
+    <article>
     <p><a href="https://www.trulia.com/">Trulia</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.trulia.com/">
@@ -74,7 +88,7 @@
         <input type="text" style = "display:none" name="actual_name" value="RedFin"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
-
+</article>
     <p><a href="https://www.interexchange.org/travel-abroad/work-travel-usa/resources/housing/">Interexchange</a> - How to Find and Rent Housing</p>
     <p><a href="https://www.usa.gov/finding-home">USA.gov</a> - Find Affordable Rental Housing</p>
     <p><a href="https://www.houselogic.com/buy/first-time-home-buyer/how-to-buy-home-usa/">Houselogic</a> - 7 Tips for Buying your First Home in the US</p>

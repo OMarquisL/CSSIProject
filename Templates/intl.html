@@ -4,7 +4,18 @@
 
     {% block content%}
   <center>
-  <h1>International Schools & Boarding Schools</h1>
+    <style>
+    div {
+      background-color: lightgrey;
+      width: 980px;
+      border: 10px solid black;
+      padding: 15px;
+      margin: 80px;
+      margin-left: 200;
+      margin-bottom: 200;
+  }
+  </style>
+  <h1>International Schools & Boarding Schools</h1><article>
   <p><a href="https://cogitoworldeducation.org/boarding-schools/">Cogito World Education - offers a range of services within the field of international education. From USA high school placement on F-1 visa programs to partial scholarships and more.</a>
     <!--<button type="button" name="button">Save</button>-->
     <form class="hidden" action="/Home" method="post">
@@ -38,6 +49,6 @@
       <input type="text" style = "display:none" name="actual_name" value="American Boarding Schools International USA - ABSI is an International Student Admissions Center for a number of quality boarding schools in the United States of America. "></input>
       <input type="submit" name="button" value="Save"></input>
       </form>
-
+</article>
 </p>
 {% endblock %}
