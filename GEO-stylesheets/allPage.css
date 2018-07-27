@@ -37,9 +37,25 @@ h3{
 
 body{
   background: #E09F3E;
+  
 
 }
+.column {
+    float: left;
+    width: 50%;
+}
 
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+article {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
 /* Hide the images by default */
 /* .mySlides {
     display: none;

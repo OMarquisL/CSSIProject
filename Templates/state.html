@@ -4,7 +4,19 @@
 
     {% block content%}
   <center>
+    <style>
+    div {
+      background-color: lightgrey;
+      width: 980px;
+      border: 10px solid black;
+      padding: 15px;
+      margin: 80px;
+      margin-left: 200;
+      margin-bottom: 200;
+  }
+  </style>
   <h1>State-specific Help</h1>
+  <article>
   <p><a href="http://www.cchpca.org/state-laws-and-reimbursement-policies">Center for Connected Health Policy - State Laws and Reinbursement Policies</a>
     <!--<button type="button" name="button">Save</button>-->
     <form class="hidden" action="/Home" method="post">
@@ -18,14 +30,6 @@
     <form class="hidden" action="/Home" method="post">
       <input type="text" name="link" style = "display:none" value="https://www.ghsa.org/state-laws">
       <input type="text" style = "display:none" name="actual_name" value="Governor's Highway Safety Association - State Laws"></input>
-      <input type="submit" name="button" value="Save"></input>
-      </form>
-</p>
-  <p><a href="https://www.llsdc.org/state-legislation">Law Librarians' Society of Washington DC - State Legislation</a>
-    <!--<button type="button" name="button">Save</button>-->
-    <form class="hidden" action="/Home" method="post">
-      <input type="text" name="link" style = "display:none" value="https://www.llsdc.org/state-legislation">
-      <input type="text" style = "display:none" name="actual_name" value="Law Librarians' Society of Washington DC - State Legislation"></input>
       <input type="submit" name="button" value="Save"></input>
       </form>
 </p>
@@ -45,4 +49,21 @@
       <input type="submit" name="button" value="Save"></input>
       </form>
 </p>
+<p><a href="https://www.llsdc.org/state-legislation">Law Librarians' Society of Washington DC - State Legislation</a>
+  <!--<button type="button" name="button">Save</button>-->
+  <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://www.llsdc.org/state-legislation">
+    <input type="text" style = "display:none" name="actual_name" value="Law Librarians' Society of Washington DC - State Legislation"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+</p>
+<p><a href="https://www.hr360.com/state-laws/">HR360 - State Laws Preface</a>
+  <!--<button type="button" name="button">Save</button>-->
+  <form class="hidden" action="/Home" method="post">
+    <input type="text" name="link" style = "display:none" value="https://www.hr360.com/state-laws/">
+    <input type="text" style = "display:none" name="actual_name" value="HR360 - State Laws Preface"></input>
+    <input type="submit" name="button" value="Save"></input>
+    </form>
+</p>
+</article>
 {% endblock %}

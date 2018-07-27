@@ -5,26 +5,44 @@
     {% block content%}
 
     <center>
+      <style>
+      div {
+        background-color: lightgrey;
+        width: 980px;
+        border: 10px solid white;
+        padding: 15px;
+        margin: 80px;
+        margin-left: 200;
+        margin-bottom: 200;
+    }
+    </style>
     <h1>State Attractions</h1>
+    <article>
     <p><a href="https://www.attractionsofamerica.com/states-map.php">Top 10 Attractions in each State</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.attractionsofamerica.com/states-map.php">
-        <input type="text" style = "display:none" name="actual_name" value="State Attractions"></input>
+        <input type="text" style = "display:none" name="actual_name" value="Top 10 Attractions in each State"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
     <p><a href="https://www.planetware.com/tourist-attractions/usa-us.htm">Planetware: 14 Top Rated Tourist Attractions</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="https://www.planetware.com/tourist-attractions/usa-us.htm">
-        <input type="text" style = "display:none" name="actual_name" value="Tourist Attractions"></input>
+        <input type="text" style = "display:none" name="actual_name" value="Planetware: 14 Top Rated Tourist Attractions"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
     <p><a href="http://www.touropia.com/tourist-attractions-in-the-usa/">Touropia: 25 Tourist Attactions</a>
       <form class="hidden" action="/Home" method="post">
         <input type="text" name="link" style = "display:none" value="http://www.touropia.com/tourist-attractions-in-the-usa/">
-        <input type="text" style = "display:none" name="actual_name" value="Touropia"></input>
+        <input type="text" style = "display:none" name="actual_name" value="Touropia: 25 Tourist Attactions"></input>
         <input type="submit" name="button" value="Save"></input>
         </form></p>
-
+        <p><a href="http://time.com/42038/map-popular-attractions-united-states/">Time: Map of the Most Popular Attraction of Each State</a>
+          <form class="hidden" action="/Home" method="post">
+            <input type="text" name="link" style = "display:none" value="http://time.com/42038/map-popular-attractions-united-states/">
+            <input type="text" style = "display:none" name="actual_name" value="Time: Map of the Most Popular Attraction of Each State"></input>
+            <input type="submit" name="button" value="Save"></input>
+            </form></p>
+</article>
 
     <p><a href="https://www.attractionsofamerica.com/states-map.php">Top 10 Attractions in each State</a></p>
     <p><a href="https://www.planetware.com/tourist-attractions/usa-us.htm">Planetware: 14 Top Rated Tourist Attractions</a></p>
