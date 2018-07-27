@@ -24,7 +24,7 @@
 		#my_centered_buttons { display: flex; justify-content: center; }
 		</style>
 		<div class="w3-button w3-black" id="my_centered_buttons">
-			<button class="w3-button w3-black" id="signup" type="button">Sign Up!</button>
+			<button class="w3-button w3-black" id="pleaseWork" type="button">Sign Up!</button>
 	 	 	<button class="w3-button w3-black" id="login" type="button">Log In!</button>
 	 	 	<button class="w3-button w3-black" id="guest" type="button">Enter as Guest!</button>
 		</div>
@@ -42,11 +42,12 @@
 	</body>
 	<footer>
 		<script type="text/javascript">
-			document.getElementById("signup").onclick = function(){
-				location.href = "/"
+		
+			document.getElementById("pleaseWork").onclick = function(){
+				location.href = "/SignUp"
 			};
 			document.getElementById("login").onclick = function(){
-				location.href = "/"
+				location.href = "/Login"
 			};
 			document.getElementById("guest").onclick = function(){
 				location.href = "/Home"
