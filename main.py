@@ -54,7 +54,13 @@ USCULTURE_NAV = [
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
-# class CssiUser(ndb.Model):
+class CssiUser(ndb.Model):
+
+    first_name = ndb.StringProperty()
+    last_name = ndb.StringProperty()
+    username = ndb.StringProperty()
+    email = ndb.StringProperty()
+    password = ndb.StringProperty()
 #   user_name = ndb.StringProperty()
 #   last_activity = ndb.DateTimeProperty()
 
@@ -161,7 +167,7 @@ class LoginHandler(webapp2.RequestHandler):
         session_iniciada = False
         q = CssiUser.query().fetch()
         for user in q:
-            if username == cssi.username and password == cssi.password:
+            if username == CssiUser.username and password == CssiUser.password:
 
                 self.response.set_cookie("logged_in","True")
                 self.response.set_cookie("user", user.username)
