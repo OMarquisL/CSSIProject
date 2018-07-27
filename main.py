@@ -84,9 +84,29 @@ class ForumPage(webapp2.RequestHandler):
 
 class FormSubmit(webapp2.RequestHandler):
     def get(self):
-        user_name = self.request.get("user_name")
-        user = CssiUser.query(CssiUser.user_name == user_name)
-        question = Question(askerinfo = user, timeasked = datetime.datetime.now(), question = self.request.get("question"), title = self.request.get("title"))
+        page_content = jinja_current_dir.get_template("Templates/formsubmit.html")
+        self.response.write(page_content.render())
+    def get(self):
+        print "Made it this far"
+        #user_name = self.request.get("user_name")
+        #user = CssiUser.query(CssiUser.user_name == user_name)
+        question = Question(timeasked = datetime.datetime.now(), question = self.request.get("question"), title = self.request.get("title"))
+        question.put()
+        print "Saved question."
+        self.redirect("/questions")
+        # self.response.out.write("Yo I saved your question you're welcome")
+
+
+class ShowQuestions(webapp2.RequestHandler):
+    def get(self):
+        params = {}
+        params['questions'] = []
+        for question in Question.query().fetch():
+            params['questions'].append(question)
+        content = jinja_current_dir.get_template("Templates/questions.html")
+        self.response.write(content.render(params))
+
+
 
 
 jinja_current_dir = jinja2.Environment(
@@ -164,8 +184,8 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(welcome_template.render(failure = True))
 
 
-    welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
-    self.response.write(welcome_template.render())
+    # welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
+    # self.response.write(welcome_template.render())
 
     # welcome_template = jinja_current_dir.get_template("Templates/signup_page.html")
     # if self.request.cookies.get("loggen_in") == True:
@@ -453,11 +473,7 @@ class GeneralTipsPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
         self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 12661cc8d12cf91af4e3ab0039d1ef9cde6aa701
 # class LogInPage(webapp2.RequestHandler):
 #     def get(self):
 #         login_content = jinja_current_dir.get_template("Templates/login_page.html")
@@ -469,9 +485,6 @@ class ForumPage(webapp2.RequestHandler):
         page_content = jinja_current_dir.get_template("Templates/forum.html")
         self.response.write(page_content.render())
 
-class FormSubmit(webapp2.RequestHandler):
-    def get(self):
-        print self.request.get("firstname")
 
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
@@ -523,5 +536,6 @@ app = webapp2.WSGIApplication([
   ('/StateAttrP', StateAttraction),
   ('/GenTips', GeneralTipsPage),
   ('/Forum', ForumPage),
-  ('/formsubmit', FormSubmit)
+  ('/formsubmit', FormSubmit),
+  ('/questions', ShowQuestions),
 ], debug=True)
