@@ -6,6 +6,7 @@ import datetime
 
 import time
 import logging
+from time import sleep
 
 jinja_current_dir = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -115,6 +116,8 @@ class MainHandler(webapp2.RequestHandler):
     self.response.set_cookie("logged_in", "True")
     self.response.set_cookie("user", cssi_user.username)
     self.response.write(home_template.render(success = True, user = cssi_user.first_name))
+    sleep(.5)
+    self.redirect('/Login')
 
 
 class LoginHandler(webapp2.RequestHandler):
@@ -129,15 +132,16 @@ class LoginHandler(webapp2.RequestHandler):
         session_iniciada = False
         q = CssiUser.query().fetch()
         for user in q:
-            if (user.username == username and user.password == password) or (user.email == username and user.password == password):
+            if user.username == username and user.password == password:
 
-                self.response.set_cookie("loggen_in","True")
+                self.response.set_cookie("logged_in","True")
                 self.response.set_cookie("user", user.username)
                 self.response.clear()
                 session_iniciada = True
-                break
+                self.redirect('/Home')
+                return
 
-            if user.username != username or user.password != password or user.email != username:
+            else:
                 session_iniciada = False
                 self.response.delete_cookie("logged_in")
                 self.response.delete_cookie("user")
@@ -156,64 +160,6 @@ class LogoutHandler(webapp2.RequestHandler):
 
         self.redirect('/')
 
-    # welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
-    # self.response.write(welcome_template.render())
-  #   user = users.get_current_user()
-  #   # If the user is logged in...
-  #   if user:
-  #     email_address = user.nickname()
-  #     cssi_user = CssiUser.get_by_id(user.user_id())
-  #     signout_link_html = '<a href="%s">sign out</a>' % (
-  #         users.create_logout_url('/'))
-  #     # If the user has previously been to our site, we greet them!
-  #     if cssi_user:
-  #       self.response.write('''
-  #           Welcome %s %s (%s)! <br> %s <br>''' % (
-  #             cssi_user.first_name,
-  #             cssi_user.last_name,
-  #             email_address,
-  #             signout_link_html))
-  #     # If the user hasn't been to our site, we ask them to sign up
-  #     else:
-  #       self.response.write('''
-  #           Welcome to our site, %s!  Please sign up! <br>
-  #           <form method="post" action="/">
-  #           <input type="text" name="first_name">
-  #           <input type="text" name="last_name">
-  #           <input type="text" name="user_name">
-  #           <input type="text" name="password">
-  #           <input type="submit">
-  #           </form><br> %s <br>
-  #           ''' % (email_address, signout_link_html))
-  #   # Otherwise, the user isn't logged in!
-  #   else:
-  #     self.response.write('''
-  #       Please log in to use our site! <br>
-  #       <a href="%s">Sign in</a>''' % (
-  #         users.create_login_url('/')))
-  #
-  # def post(self):
-  #   bye_template = jinja_current_dir.get_template("Templates/Home.html")
-  #   self.response.write(bye_template.render())
-  #   user = users.get_current_user()
-  #   if not user:
-  #     # You shouldn't be able to get here without being logged in
-  #     self.error(500)
-  #     return
-  #   cssi_user = CssiUser(
-  #       first_name=self.request.get('first_name'),
-  #       last_name=self.request.get('last_name'),
-  #       id=user.user_id())
-  #   cssi_user.put()
-  #   self.response.write('Thanks for signing up, %s!' %
-  #       cssi_user.first_name)
-  #
-  # def post(self):
-  #     username = self.request.get("user_name")
-  #     newuser = CssiUser(user_name = username, last_activity = datetime.datetime.now())
-
-
-
 class Dashboard(ndb.Model):
     button_save = ndb.StringProperty();
     actual_name = ndb.StringProperty();
@@ -231,7 +177,7 @@ class HomePage(webapp2.RequestHandler):
         # else:
         #     self.response.write(home_template.render(login = True))
 
-        self.response.write(home_template.render())
+        # self.response.write(home_template.render())
     def post(self):
         answer = self.request.get('link')
         actual_name = self.request.get('actual_name')
@@ -399,6 +345,11 @@ class FormSubmit(webapp2.RequestHandler):
     def get(self):
         print self.request.get("firstname")
 
+class WelcomePage(webapp2.RequestHandler):
+    def get(self):
+        welcomePage_content = jinja_current_dir.get_template("Templates/welcome1.html")
+        self.response.write(welcomePage_content.render())
+
 # app = webapp2.WSGIApplication([
 
   # ('/Home', HomeWithDashboardPage),
@@ -414,7 +365,7 @@ class FormSubmit(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
   ('/Login', LoginHandler),
   ('/', MainHandler),
-  ('/welcome', MainHandler),
+  ('/welcome', WelcomePage),
   ('/Home', HomePage),
   ('/Education', EducationPage),
   ('/Immigration', ImmigrationPage),
