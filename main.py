@@ -195,7 +195,8 @@ class MainHandler(webapp2.RequestHandler):
     # else:
     #     self.response.write(welcome_template.render(failure = True))
 
-    # If the user is logged in...
+    # If the user s logged in...
+class NewUserHandle(webapp2.RequestHandler):
   def post(self):
     home_template = jinja_current_dir.get_template("Templates/signup_page.html")
     cssi_user = CssiUser(
@@ -230,6 +231,8 @@ class SignUpPageHandler(webapp2.RequestHandler):
         # sleep(.5)
         # self.redirect('/Login')
         self.response.write(content.render())
+        # def post(self):
+
 
 
 class LogoutHandler(webapp2.RequestHandler):
@@ -343,6 +346,7 @@ class HomePage(webapp2.RequestHandler):
             SaveData.put()
         self.redirect('/Home')
         time.sleep(.15)
+
 class EducationPage (webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/education.html")
@@ -543,6 +547,7 @@ app = webapp2.WSGIApplication([
   ('/Login', LoginHandler),
   ('/LogOut', LogoutHandler),
   ('/', WelcomePage),
+  ('/NewUser', NewUserHandle),
   ('/SignUp', SignUpPageHandler),
  # x ('/welcome', WelcomePage),
   ('/Home', HomePage),
