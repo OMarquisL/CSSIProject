@@ -55,11 +55,17 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 
 class CssiUser(ndb.Model):
-  user_name = ndb.StringProperty()
-  last_activity = ndb.DateTimeProperty()
+
+    first_name = ndb.StringProperty()
+    last_name = ndb.StringProperty()
+    username = ndb.StringProperty()
+    email = ndb.StringProperty()
+    password = ndb.StringProperty()
+#   user_name = ndb.StringProperty()
+#   last_activity = ndb.DateTimeProperty()
 
 class Question(ndb.Model):
-    askerinfo = ndb.KeyProperty(CssiUser)
+    # askerinfo = ndb.KeyProperty(CssiUser)
     timeasked = ndb.DateTimeProperty()
     # replies = ndb.KeyProperty(Reply, repeated=True)
     question = ndb.StringProperty()
@@ -67,9 +73,9 @@ class Question(ndb.Model):
 
 class Reply(ndb.Model):
     timegiven = ndb.DateTimeProperty()
-    giverinfo = ndb.KeyProperty(CssiUser)
+    # giverinfo = ndb.KeyProperty(CssiUser)
     reply = ndb.StringProperty()
-    question = ndb.KeyProperty(Question)
+    # question = ndb.KeyProperty(Question)
 
 class ForumPage(webapp2.RequestHandler):
     def get(self):
@@ -90,6 +96,7 @@ jinja_current_dir = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
   def get(self):
+
     #
     # welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
     # self.response.write(welcome_template.render())
@@ -155,6 +162,18 @@ class MainHandler(webapp2.RequestHandler):
 
     else:
         self.response.write(welcome_template.render(failure = True))
+
+
+    welcome_template = jinja_current_dir.get_template("Templates/welcome1.html")
+    self.response.write(welcome_template.render())
+
+    # welcome_template = jinja_current_dir.get_template("Templates/signup_page.html")
+    # if self.request.cookies.get("loggen_in") == True:
+    #     self.response.write(welcome_template.render(success =True, user = self.request.cookies.get("user")))
+
+    # else:
+    #     self.response.write(welcome_template.render(failure = True))
+
     # If the user is logged in...
   def post(self):
     home_template = jinja_current_dir.get_template("Templates/signup_page.html")
@@ -172,7 +191,38 @@ class MainHandler(webapp2.RequestHandler):
     sleep(.5)
     self.redirect('/Login')
 
+class SignUpPageHandler(webapp2.RequestHandler):
+    def get(self):
+        content = jinja_current_dir.get_template("Templates/signup_page.html")
+        # cssi_user = CssiUser(
+        # first_name = self.request.get('firstName'),
+        # last_name = self.request.get('lastName'),
+        # username = self.request.get('Username'),
+        # email = self.request.get('Email'),
+        # password = self.request.get('Password'))
+        #
+        # cssi_user.put()
+        # self.response.set_cookie("logged_in", "True")
+        # self.response.set_cookie("user", cssi_user.username)
+        # self.response.write(home_template.render(success = True, user = cssi_user.first_name))
+        # sleep(.5)
+        # self.redirect('/Login')
+        self.response.write(content.render())
 
+
+class LogoutHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.delete_cookie("logged_in")
+        self.response.delete_cookie("user")
+
+        self.redirect('/')
+
+class Dashboard(ndb.Model):
+    button_save = ndb.StringProperty();
+    actual_name = ndb.StringProperty();
+
+
+# class HomeWithDashboardPage(webapp2.RequestHandler):
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
         session = jinja_current_dir.get_template("Templates/signIn_page.html")
@@ -185,7 +235,7 @@ class LoginHandler(webapp2.RequestHandler):
         session_iniciada = False
         q = CssiUser.query().fetch()
         for user in q:
-            if user.username == username and user.password == password:
+            if username == CssiUser.username and password == CssiUser.password:
 
                 self.response.set_cookie("logged_in","True")
                 self.response.set_cookie("user", user.username)
@@ -203,8 +253,21 @@ class LoginHandler(webapp2.RequestHandler):
             not_session = jinja_current_dir.get_template("Templates/signIn_page.html")
             self.response.write(not_session.render(start = True, error = True, Username = username, Password = password))
 
-        else:
-            self.redirect("/Home")
+        # else:
+        #     self.redirect("/Home")
+
+
+# class HomeWithDashboardPage(webapp2.RequestHandler):
+#     def post(self):
+#         home_template = jinja_current_dir.get_template("Templates/homePage.html")
+#         answer = self.request.get('answer')
+#         actual_name = self.request.get('submit')
+#
+#         SaveData = Dashboard(button_save = answer, actual_name = actual_name)
+#         SaveData.put()
+#         # self.response.write(home_template.render(button_save = answer, actual_name = actual_name))
+#         self.redirect('/Home')
+#         # time.sleep(.15)
 
 class LogoutHandler(webapp2.RequestHandler):
     def get(self):
@@ -226,13 +289,12 @@ class HomePage(webapp2.RequestHandler):
         self.response.write(home_template.render(intento=intento))
     #def post(self):
 
-        if self.request.cookies.get("logged_in") == "True":
-            self.response.write(home_template.render(active = True))
-
+        # if self.request.cookies.get("logged_in") == "True":
+            # dashboardData = CssiUser.query()
+            # self.response.write(home_template.render(active = True, dashboardData = dashboardData))
         # else:
-        #     self.response.write(home_template.render(login = True))
 
-        # self.response.write(home_template.render())
+
 
     def post(self):
         answer = self.request.get('link')
@@ -391,6 +453,11 @@ class GeneralTipsPage(webapp2.RequestHandler):
     def get(self):
         page_content = jinja_current_dir.get_template("Templates/genTips_page.html")
         self.response.write(page_content.render(navbar_content = USCULTURE_NAV))
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 12661cc8d12cf91af4e3ab0039d1ef9cde6aa701
 # class LogInPage(webapp2.RequestHandler):
 #     def get(self):
 #         login_content = jinja_current_dir.get_template("Templates/login_page.html")
@@ -411,6 +478,7 @@ class WelcomePage(webapp2.RequestHandler):
         welcomePage_content = jinja_current_dir.get_template("Templates/welcome1.html")
         self.response.write(welcomePage_content.render())
 
+
 # app = webapp2.WSGIApplication([
 
   # ('/Home', HomeWithDashboardPage)
@@ -426,6 +494,7 @@ class WelcomePage(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
   ('/Login', LoginHandler),
   ('/', MainHandler),
+  ('/SignUp', SignUpPageHandler),
   ('/welcome', WelcomePage),
   ('/Home', HomePage),
   ('/Education', EducationPage),
